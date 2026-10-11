@@ -1,0 +1,9 @@
+{
+  "reference_sha256": "a270e5aa561f06805fae19bf815f4540d50ee17c00d0a77cb021a4708e14083e",
+  "rebuilt_sha256": "f5f4c576d1913f6b6ef0dae1523290343380dc0879e7a1b4a7946543bc25d07c",
+  "compiler": "ziglang 0.17.0",
+  "fresh_directory_source_only_build_identical": true,
+  "live_game_test": false,
+  "original_cpp_recovered": false,
+  "validation_summary": "428 instructions and original data compared. Original and rebuilt candidates both passed mocked popup frame tests at two bases: Enter/A, hold/release, native-message and title guards, sound, timeout acknowledgement and explicit reset. The separate text-hook installer was marked installed in those emulations, not exercised."
+}

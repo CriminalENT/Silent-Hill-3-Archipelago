@@ -1,0 +1,11 @@
+{
+  "original_sha256": "ca6fb3581ffa990ec0e43a366356ee897d1144440b61f7322c309c410c00979f",
+  "rebuilt_sha256": "d9e51d1eafaa627ca49f355920b81008db0dec01a8ac2d2b37157c1f217c9669",
+  "compiler": "ziglang 0.17.0",
+  "matched_instructions": 1178,
+  "original_data_ranges": "identical",
+  "source_only_fresh_directory_build_identical": true,
+  "live_test": false,
+  "dynamic_tests": false,
+  "runtime_modified": false
+}

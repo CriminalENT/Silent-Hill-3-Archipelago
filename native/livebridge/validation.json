@@ -1,0 +1,9 @@
+{
+  "reference_sha256": "3a8179f6323a0ade9f9db14e7b02153df4a45996fc8275350e4031af2edddb10",
+  "rebuilt_sha256": "5d552a2e0ed51c8b1fe73fcd2daf6d98c055b53d25c60106c22733687e797ed9",
+  "compiler": "ziglang 0.17.0",
+  "fresh_directory_source_only_build_identical": true,
+  "live_game_test": false,
+  "original_cpp_recovered": false,
+  "validation_summary": "671 original text instructions and data compared. The full New Game extension bytes match the reference. The world-flag table in original raw-section padding is now explicit source data."
+}

@@ -1,0 +1,109 @@
+{
+  "notice": "Extracted reference assets for private source reconstruction. Origin/licensing unverified; not cleared for public redistribution. No executable code is stored as an asset.",
+  "assets": [
+    {
+      "file": "resources/tracker_atlas.png",
+      "kind": "1024x512 RGBA atlas, decoded from the runtime RLE texture",
+      "rva": 265696,
+      "encoded_bytes": 617160,
+      "encoded_sha256": "e464cff0715444bcb9173bd95b357c069a13308b2f0d6456d3a37339b3891f6f",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_01.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 883096,
+      "encoded_bytes": 44676,
+      "encoded_sha256": "c927c5134cb88b961584e9d0a353d40919b1227fd3a2cc7fd9144d06f65c93f0",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_02.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 927772,
+      "encoded_bytes": 108978,
+      "encoded_sha256": "5a526ef9d00fd5e59ad1760172a75581389ecf2c4600affd8e64b6692a294552",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_03.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 1036752,
+      "encoded_bytes": 142880,
+      "encoded_sha256": "cffc3985e8c99f667fe23e4bff2c7b66266a98d1b2cf6089c60d045cc2cfd53c",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_04.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 1179632,
+      "encoded_bytes": 316054,
+      "encoded_sha256": "cd04b26319577d3d50a603afdd67872663a7c35c60ae5fa098119ac69038fa10",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_05.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 1495688,
+      "encoded_bytes": 311036,
+      "encoded_sha256": "4cfc59c099178ea754216c929b8a6e6527f5140aed951b1e6388f8ee7e3e1b08",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_06.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 1806724,
+      "encoded_bytes": 220032,
+      "encoded_sha256": "5601c6cc01eb5ac6bab80a0fc8d8fc067122eca3ec0eaa3b283957fe9d67d828",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_07.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 2026756,
+      "encoded_bytes": 110228,
+      "encoded_sha256": "447984a2685c741fbf09579d9035faa95c2858845ac05202da6cfb2d67b7925d",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_08.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 2136984,
+      "encoded_bytes": 71118,
+      "encoded_sha256": "9bfb88af5e4ba9c327d3cd17ec7dc3e3d388a10ee9d6f53d4fe3153832231796",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_09.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 2208104,
+      "encoded_bytes": 974120,
+      "encoded_sha256": "ef8f02eb2d00ecaf00c5f07f4654ddd658b0a600ed8c31f440227948d28df4bd",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_10.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 3182224,
+      "encoded_bytes": 218068,
+      "encoded_sha256": "0e7a497b39032f3f2331ac44d9f06db25826cd6ebd342b9e400414943546c2d0",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_11.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 3400292,
+      "encoded_bytes": 100748,
+      "encoded_sha256": "e291f2c25adb98392da322bc87a76908e370911def12525863aa543192efa54f",
+      "origin": "unverified"
+    },
+    {
+      "file": "resources/sound_12.wav",
+      "kind": "RIFF/WAVE",
+      "rva": 3501040,
+      "encoded_bytes": 198238,
+      "encoded_sha256": "d0ba85c76f5b4ac7be0df6d6769713c04f91ba91bfda1eba78968a594d02b175",
+      "origin": "unverified"
+    }
+  ]
+}

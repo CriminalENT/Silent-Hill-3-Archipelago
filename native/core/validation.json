@@ -1,0 +1,17 @@
+{
+  "reference_sha256": "5b6aee062be87afb6e84124708680c6da834b77939b4f85d371b9e224509b9d9",
+  "rebuilt_sha256": "540caa38dfe4a8a00a25d9c12d83243c87e67894bb89fca2f373a6cf7f170700",
+  "rebuilt_bytes": 152064,
+  "compiler": "GNU binutils 2.42; explicit PE32 metadata builder",
+  "primary_instructions": 26251,
+  "extension_instructions": 2351,
+  "overlapping_entry_decodes_checked": 0,
+  "complete_ASI_candidate_build": true,
+  "fresh_directory_source_and_assets_build_identical": true,
+  "reference_ASI_required_to_build": false,
+  "original_cpp_recovered": false,
+  "relocations": 1721,
+  "windows_loader_test": false,
+  "gameplay_test": false,
+  "runtime_modified": false
+}

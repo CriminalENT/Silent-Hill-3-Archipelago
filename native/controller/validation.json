@@ -1,0 +1,9 @@
+{
+  "reference_sha256": "868652a3635c2b3f68f30c9a86ed8c1a6bc15b038e50c2244115f3fbee819017",
+  "rebuilt_sha256": "21a003db1a8512d5e9ec1e5a3150db7fe450290035d0cb256a8c0c1a74702a35",
+  "compiler": "ziglang 0.17.0",
+  "fresh_directory_source_only_build_identical": true,
+  "live_game_test": false,
+  "original_cpp_recovered": false,
+  "validation_summary": "1,206 instructions and original data compared; original instruction/data addresses retained. One stale original relocation at RVA 0x195d (over NOP bytes 0x90909090) is intentionally absent from the candidate."
+}

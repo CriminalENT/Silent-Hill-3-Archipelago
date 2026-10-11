@@ -1,0 +1,9 @@
+{
+  "reference_sha256": "0e7a853c814991c460039aab0548e5aae028ba06d3920c44e55d0b475c5bdebc",
+  "rebuilt_sha256": "ea6e7f5aee2df18d0587db3b24c5c267088ab3b78fe81fa0d9e235a46b85ab39",
+  "compiler": "ziglang 0.17.0",
+  "fresh_directory_source_only_build_identical": true,
+  "live_game_test": false,
+  "original_cpp_recovered": false,
+  "validation_summary": "1,114 instructions, original data and relocation entries compared; original instruction/data addresses retained."
+}

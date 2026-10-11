@@ -1,0 +1,610 @@
+{
+  "scope": "Explicit iat_ call operands only; excludes dynamically resolved APIs and indirect calls. This is a navigation index, not a complete security audit.",
+  "sites": [
+    {
+      "source": "native/core/primary_text.S",
+      "line": 51,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 75,
+      "instruction": "call dword ptr [iat_SetFilePointer]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 99,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 105,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 111,
+      "instruction": "call dword ptr [iat_DisableThreadLibraryCalls]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 132,
+      "instruction": "call dword ptr [iat_CreateThread]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 144,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 201,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 225,
+      "instruction": "call dword ptr [iat_SetFilePointer]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 246,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 270,
+      "instruction": "call dword ptr [iat_SetFilePointer]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 318,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 978,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 1032,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 1053,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 1089,
+      "instruction": "call dword ptr [iat_ReadFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 1098,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 1188,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 1860,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 2043,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 2133,
+      "instruction": "call dword ptr [iat_ReadFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 2142,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 3231,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4692,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4761,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4797,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4809,
+      "instruction": "call dword ptr [iat_FlushInstructionCache]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4878,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4944,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4980,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 4992,
+      "instruction": "call dword ptr [iat_FlushInstructionCache]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5073,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5139,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5175,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5187,
+      "instruction": "call dword ptr [iat_FlushInstructionCache]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5256,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5322,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5358,
+      "instruction": "call dword ptr [iat_VirtualProtect]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5370,
+      "instruction": "call dword ptr [iat_FlushInstructionCache]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5409,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5445,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5478,
+      "instruction": "call dword ptr [iat_CreateNamedPipeA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5547,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5574,
+      "instruction": "call dword ptr [iat_Sleep]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 5979,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 6081,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 6129,
+      "instruction": "call dword ptr [iat_GetLastError]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 6201,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 6252,
+      "instruction": "call dword ptr [iat_DisconnectNamedPipe]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 6978,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 7998,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 8022,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 8058,
+      "instruction": "call dword ptr [iat_ReadFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 8067,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 15150,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 16299,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 16743,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 20364,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 21321,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 25305,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 26238,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 29457,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 33141,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 34866,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 35643,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37155,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37197,
+      "instruction": "call dword ptr [iat_ReadFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37293,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37326,
+      "instruction": "call dword ptr [iat_DisconnectNamedPipe]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37515,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37539,
+      "instruction": "call dword ptr [iat_ConnectNamedPipe]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37548,
+      "instruction": "call dword ptr [iat_GetLastError]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37590,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37617,
+      "instruction": "call dword ptr [iat_CreateNamedPipeA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37659,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 37692,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 38343,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 38838,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 38880,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 39552,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 42210,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 45540,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 46419,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 46461,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 46659,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 46890,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 47418,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 49065,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 49818,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 52413,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 52521,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 58350,
+      "instruction": "call dword ptr [iat_GetModuleFileNameA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 58977,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 59025,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 59058,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 59079,
+      "instruction": "call dword ptr [iat_FlushFileBuffers]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 59088,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 61812,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 64095,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 64653,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 64716,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 65628,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 67368,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 67461,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 67515,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 67554,
+      "instruction": "call dword ptr [iat_DisconnectNamedPipe]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 67629,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 71154,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 71250,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 72093,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 72159,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 73848,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 75141,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 76908,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 76914,
+      "instruction": "call dword ptr [iat_FlushFileBuffers]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 78600,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 78606,
+      "instruction": "call dword ptr [iat_FlushFileBuffers]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 78660,
+      "instruction": "call dword ptr [iat_CreateFileA]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 78693,
+      "instruction": "call dword ptr [iat_WriteFile]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 78714,
+      "instruction": "call dword ptr [iat_FlushFileBuffers]"
+    },
+    {
+      "source": "native/core/primary_text.S",
+      "line": 78723,
+      "instruction": "call dword ptr [iat_CloseHandle]"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+ziglang==0.17.0
+
+# Core/UI also require GNU binutils (tested with 2.42), available in Linux/WSL.
+Pillow==12.3.0

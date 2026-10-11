@@ -1,0 +1,16 @@
+{
+  "original_sha256": "4957e576a594286018c242962092b5e85047615f112a66eabca1ea30b2de9f43",
+  "rebuilt_sha256": "b2bc9e263a48f78e669766bcdfb652922e883a75d750890fa471f0daebf095fb",
+  "rebuilt_bytes": 6144,
+  "compiler": "ziglang 0.17.0",
+  "target": "x86-windows-gnu",
+  "fresh_directory_source_only_build_identical": true,
+  "emulated_scenarios": 8,
+  "controller_gate_cases": 288,
+  "result": "matched original",
+  "win32_apis": "mocked",
+  "live_game_test": false,
+  "runtime_modified": false,
+  "original_source_recovered": false,
+  "complete_assembly_reconstruction": true
+}

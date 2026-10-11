@@ -1,0 +1,9 @@
+{
+  "reference_sha256": "48d552aeb309caf8c814a8153108e916b362c2599c3e5835e3ff8fa321339a0b",
+  "rebuilt_sha256": "a05c58d5000d02b6c04936f3b19ca9266f531dc81038b1e0dc6fac847faa6bd8",
+  "compiler": "ziglang 0.17.0",
+  "fresh_directory_source_only_build_identical": true,
+  "live_game_test": false,
+  "original_cpp_recovered": false,
+  "validation_summary": "Complete text/data section comparison at two load bases, including the relocated store pointer; 16 emulated DLL entry scenarios."
+}

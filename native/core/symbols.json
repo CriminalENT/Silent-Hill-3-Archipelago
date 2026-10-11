@@ -1,0 +1,26 @@
+{
+  "windows_import_slots": {
+    "iat_CloseHandle": "0x1001c838",
+    "iat_ConnectNamedPipe": "0x1001c83c",
+    "iat_CreateFileA": "0x1001c840",
+    "iat_CreateNamedPipeA": "0x1001c844",
+    "iat_CreateThread": "0x1001c848",
+    "iat_DisableThreadLibraryCalls": "0x1001c84c",
+    "iat_DisconnectNamedPipe": "0x1001c850",
+    "iat_FlushFileBuffers": "0x1001c854",
+    "iat_FlushInstructionCache": "0x1001c858",
+    "iat_GetLastError": "0x1001c85c",
+    "iat_GetModuleFileNameA": "0x1001c860",
+    "iat_ReadFile": "0x1001c864",
+    "iat_SetFilePointer": "0x1001c868",
+    "iat_Sleep": "0x1001c86c",
+    "iat_VirtualProtect": "0x1001c870",
+    "iat_WriteFile": "0x1001c874"
+  },
+  "known_code_entries": {
+    "original_DllMain": "0x1000",
+    "current_DllMain": "0x2e000",
+    "startup_worker": "0x2e779",
+    "platform_scene_hook": "0x38151"
+  }
+}

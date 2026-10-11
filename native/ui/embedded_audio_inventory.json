@@ -1,0 +1,319 @@
+{
+  "reference_plugin_sha256": "330b3cbc67e831dbaaee8d4670b0a3c7c69f7d4eff5542ff52a85a6eb90978d6",
+  "validated_embedded_wave_resources": 12,
+  "assets": [
+    {
+      "section": ".tracker",
+      "rva": "0xd7998",
+      "bytes": 44676,
+      "sha256": "c927c5134cb88b961584e9d0a353d40919b1227fd3a2cc7fd9144d06f65c93f0",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 44632
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0xe281c",
+      "bytes": 108978,
+      "sha256": "5a526ef9d00fd5e59ad1760172a75581389ecf2c4600affd8e64b6692a294552",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 108934
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0xfd1d0",
+      "bytes": 142880,
+      "sha256": "cffc3985e8c99f667fe23e4bff2c7b66266a98d1b2cf6089c60d045cc2cfd53c",
+      "format": {
+        "format_tag": 1,
+        "channels": 2,
+        "sample_rate": 32000,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 142836
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x11fff0",
+      "bytes": 316054,
+      "sha256": "cd04b26319577d3d50a603afdd67872663a7c35c60ae5fa098119ac69038fa10",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 316010
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x16d288",
+      "bytes": 311036,
+      "sha256": "4cfc59c099178ea754216c929b8a6e6527f5140aed951b1e6388f8ee7e3e1b08",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 32000,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 310924
+        },
+        {
+          "id": "smpl",
+          "bytes": 60
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x1b9184",
+      "bytes": 220032,
+      "sha256": "5601c6cc01eb5ac6bab80a0fc8d8fc067122eca3ec0eaa3b283957fe9d67d828",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 219988
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x1eed04",
+      "bytes": 110228,
+      "sha256": "447984a2685c741fbf09579d9035faa95c2858845ac05202da6cfb2d67b7925d",
+      "format": {
+        "format_tag": 1,
+        "channels": 2,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 110184
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x209b98",
+      "bytes": 71118,
+      "sha256": "9bfb88af5e4ba9c327d3cd17ec7dc3e3d388a10ee9d6f53d4fe3153832231796",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 71074
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x21b168",
+      "bytes": 974120,
+      "sha256": "ef8f02eb2d00ecaf00c5f07f4654ddd658b0a600ed8c31f440227948d28df4bd",
+      "format": {
+        "format_tag": 1,
+        "channels": 2,
+        "sample_rate": 32513,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 974008
+        },
+        {
+          "id": "smpl",
+          "bytes": 60
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x308e90",
+      "bytes": 218068,
+      "sha256": "0e7a497b39032f3f2331ac44d9f06db25826cd6ebd342b9e400414943546c2d0",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 218024
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x33e264",
+      "bytes": 100748,
+      "sha256": "e291f2c25adb98392da322bc87a76908e370911def12525863aa543192efa54f",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 100704
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    },
+    {
+      "section": ".tracker",
+      "rva": "0x356bf0",
+      "bytes": 198238,
+      "sha256": "d0ba85c76f5b4ac7be0df6d6769713c04f91ba91bfda1eba78968a594d02b175",
+      "format": {
+        "format_tag": 1,
+        "channels": 1,
+        "sample_rate": 22050,
+        "bits_per_sample": 16
+      },
+      "chunks": [
+        {
+          "id": "fmt ",
+          "bytes": 16
+        },
+        {
+          "id": "data",
+          "bytes": 198126
+        },
+        {
+          "id": "smpl",
+          "bytes": 60
+        }
+      ],
+      "origin": "unverified",
+      "audio_bytes_distributed_in_source_package": true,
+      "distribution_scope": "private review package; permission unverified"
+    }
+  ],
+  "conclusion": "Valid WAVE resources are embedded; their original provenance/licence is not established here. This does not determine whether they are game audio, original audio, or third-party audio."
+}
