@@ -155,11 +155,15 @@
     },
     "1397248085": {
       "region": "train",
-      "requires": []
+      "requires": [
+        "Flashlight"
+      ]
     },
     "1397248086": {
       "region": "train",
-      "requires": []
+      "requires": [
+        "Flashlight"
+      ]
     },
     "1397248109": {
       "region": "construction",
@@ -572,14 +576,12 @@
     "1397248106": {
       "region": "sewer",
       "requires": [
-        "Dryer",
         "Steel Pipe"
       ]
     },
     "1397248107": {
       "region": "sewer",
       "requires": [
-        "Dryer",
         "Steel Pipe"
       ]
     },
@@ -725,9 +727,7 @@
     },
     "1397248224": {
       "region": "subway",
-      "requires": [
-        "Flashlight"
-      ]
+      "requires": []
     },
     "1397248094": {
       "region": "underpass",
@@ -1036,21 +1036,15 @@
     },
     "1397248227": {
       "region": "subway",
-      "requires": [
-        "Flashlight"
-      ]
+      "requires": []
     },
     "1397248228": {
       "region": "subway",
-      "requires": [
-        "Flashlight"
-      ]
+      "requires": []
     },
     "1397248229": {
       "region": "subway",
-      "requires": [
-        "Flashlight"
-      ]
+      "requires": []
     }
   }
 }

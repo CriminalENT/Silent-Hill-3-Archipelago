@@ -1,6 +1,6 @@
-# Silent Hill 3 Archipelago 1.0.2
+# Silent Hill 3 Archipelago 1.0.6
 
-Close SH3 and its client. Install sh3_1.0.2.apworld in Archipelago/custom_worlds,
+Close SH3 and its client. Install sh3.apworld in Archipelago/custom_worlds,
 removing older SH3 APWorld copies. Open Silent Hill 3 Client and select your existing
 PC game folder. The supported executable is checked before setup changes files.
 
@@ -14,8 +14,9 @@ Upgrading from experimental standalone builds removes their plugin/config/marker
 and restores the earliest verified display backup where available. Existing AP and
 Vanilla save profiles are retained. Keep the game closed during this migration.
 
-Version 1.0.1 seeds remain supported when their catalogue, location, travel and
-script protocols match. Version 1.0.2 does not change item/location IDs or logic.
+Compatible 1.0.1–1.0.4 seeds remain supported when their catalogue, location,
+travel and script protocols match. The 1.0.6 version update preserves the current
+item/location IDs and logic.
 
 The gameplay-overlay row and the keybind/reset mouse rectangles are aligned with
 the connection/keybind column. Windows rendering has not been confirmed for this

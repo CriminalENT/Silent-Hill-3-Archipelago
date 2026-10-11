@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from .fast_travel_names import display_name
+from .new_game import exchange as _new_game_exchange, observe as _observe_native_new_game
+from .popup_history import history as _popup_history, first_notice as _first_popup_notice
+
 import asyncio
 import base64
 import ctypes
@@ -26,6 +30,7 @@ from .components import get_sh3_icon_path
 from .runtime_discovery import RuntimeDiscovery
 from .tracker_client import sync as _sync_tracker
 from .poptracker_follow import sync as _sync_poptracker_follow
+from .pickup_diagnostics import sync as _sync_pickup_diagnostics
 from .save_travel import TravelState, NATIVE_SIGNATURE, NATIVE_RVA, VIRTUAL_SIGNATURE, VIRTUAL_RVA
 from .silent_hill_client import CLIENT_NAME, CLIENT_BRAND
 
@@ -37,6 +42,7 @@ from .data import (
     ITEM_ID_TO_RAW,
     LOCATION_NAME_TO_ID,
     PERSIST_FLAG_TO_LOCATION_ID,
+    PERSIST_FLAG_ALIASES,
     RECEIVE_RAW_IDS, SCRIPTED_PROTOCOL, SCRIPTED_BIT_TO_LOCATION_ID, SCRIPTED_FLAG_TO_LOCATION_ID, active_locations, BOSS_LOCATION, MALL_MAP_ITEM, MAP_CHECK_ITEMS, ITEM_NAME_TO_ID, goal_location_ids,
     PROTOCOL_VERSION,
     START_LOCATION_IDS,
@@ -204,8 +210,11 @@ def _slot_catalogue_matches(slot_data: dict) -> bool:
         flags = {int(flag) for flag in slot_data.get("confirmed_location_flags", ())}
     except (TypeError, ValueError):
         return False
-    return (slot_data.get("sh3ap_world_version") in (WORLD_VERSION, "1.0.3", "1.0.2", "1.0.1")
-            and flags == set(PERSIST_FLAG_TO_LOCATION_ID)
+    return (slot_data.get("sh3ap_world_version") in (WORLD_VERSION, "1.0.5", "1.0.4", "1.0.3", "1.0.2", "1.0.1")
+            # Alternate native pickups do not change the public check set.
+            # Accept existing seeds generated before these aliases were added.
+            and {PERSIST_FLAG_ALIASES.get(f, f) for f in flags}
+                == {PERSIST_FLAG_ALIASES.get(f, f) for f in PERSIST_FLAG_TO_LOCATION_ID}
             and slot_data.get("scripted_check_protocol") == SCRIPTED_PROTOCOL
             and slot_data.get("scripted_location_ids") == sorted(
                 loc for loc in SCRIPTED_BIT_TO_LOCATION_ID.values()
@@ -298,6 +307,7 @@ def _observe_new_game_trace(ctx: "SilentHill3Context", line: str) -> bool:
         ctx.new_game_candidate_tick = None
         ctx.new_game_candidate_ids.clear()
         ctx.runtime_entry_classification = None
+        ctx.native_new_game_epoch = 0
         return False
 
     if line.startswith("AP_SAVE_LOAD_OBSERVED ") or line.startswith("STATE_REBASE "):
@@ -431,7 +441,7 @@ def _popup_payload(parts: list[tuple[str, int]]) -> bytes:
     return b"".join(word.to_bytes(2, "little") for word in words).ljust(POPUP_PAYLOAD_BYTES, b"\0")
 
 
-def _queue_item_popup(ctx, item, receiving: int, *, applied: bool) -> None:
+def _queue_item_popup(ctx, item, receiving: int, *, applied: bool, index: int | None = None) -> None:
     if ctx.activity_game_closed or ctx.slot is None:
         return
     sender = int(_network_field(item, "player", 0) or 0)
@@ -454,8 +464,15 @@ def _queue_item_popup(ctx, item, receiving: int, *, applied: bool) -> None:
         if key in ctx.popup_sent_seen:
             return
         ctx.popup_sent_seen.add(key)
+    try:
+        if not _first_popup_notice(ctx, GAME_FOLDER, item, receiving, index):
+            return
+    except (OSError, ValueError, TypeError):
+        # Presentation history must never interrupt AP item delivery.
+        bridge_logger.warning("Item popup paused: notification history could not be read.")
+        return
     color = 13 if flags & 1 else 2 if flags & 2 else 3 if flags & 4 else 6
-    name = ctx.item_names.lookup_in_slot(item_id, receiving)
+    name = display_name(ctx.item_names.lookup_in_slot(item_id, receiving))
     if receiving != ctx.slot:
         parts = [("I got ", 1), (_player_name(ctx, receiving), 14), ("'s ", 1), (name, color), (".", 1)]
     elif sender == ctx.slot:
@@ -718,16 +735,18 @@ def _resolve_printjson_segments(ctx: "SilentHill3Context", data) -> list[dict]:
             elif node_type == "item_id":
                 item_id = int(text)
                 player = int(node.get("player", 0) or 0)
-                text = ctx.item_names.lookup_in_slot(item_id, player)
+                text = display_name(ctx.item_names.lookup_in_slot(item_id, player))
                 color = _ap_item_color(int(node.get("flags", 0) or 0))
             elif node_type == "item_name":
+                text = display_name(text)
                 color = _ap_item_color(int(node.get("flags", 0) or 0))
             elif node_type == "location_id":
                 location_id = int(text)
                 player = int(node.get("player", 0) or 0)
-                text = ctx.location_names.lookup_in_slot(location_id, player)
+                text = display_name(ctx.location_names.lookup_in_slot(location_id, player))
                 color = AP_JSON_COLORS["green"]
             elif node_type == "location_name":
+                text = display_name(text)
                 color = AP_JSON_COLORS["green"]
             elif node_type == "entrance_name":
                 color = AP_JSON_COLORS["blue"]
@@ -1403,7 +1422,7 @@ async def _sync_save_travel(ctx: "SilentHill3Context") -> None:
         for index in pending:
             item = ctx.items_received[index]
             _record_applied_activity(ctx, item, index)
-            _queue_item_popup(ctx, item, ctx.slot, applied=True)
+            _queue_item_popup(ctx, item, ctx.slot, applied=True, index=index)
     ctx.travel_error = None
 
 
@@ -1411,6 +1430,11 @@ async def _report_boss_goal(ctx, state, live_checks=()) -> None:
     # CommonClient resends finished_game before our Connected handler validates
     # the new slot. Keep our own identity-bound token and retry after reconnect.
     required = goal_location_ids(ctx.slot_data.get("win_condition"))
+    # Older clients could submit God at the tarot door. Server check history
+    # alone must never re-confirm that premature completion after upgrading.
+    god = next(iter(goal_location_ids("kill_god")))
+    if god not in live_checks:
+        return
     token = (id(ctx.server), *state.identity)
     if (state.identity == [GAME_NAME, ctx.room_seed_name, ctx.team, ctx.slot, ctx.auth]
             and ctx.location_catalogue_compatible
@@ -1574,6 +1598,10 @@ class SilentHill3Context(CommonContext):
                     self.travel_runtime_ready = False
                 self.room_seed_name = incoming_seed
         elif cmd == "Connected":
+            try:
+                _popup_history(self, GAME_FOLDER)
+            except (OSError, ValueError, TypeError):
+                bridge_logger.warning("Could not load item notification history; item delivery remains enabled.")
             self.deathlink_state.reset()
             self.travel_snapshot_pending = False
             self.goal_sent_token = None
@@ -1599,7 +1627,7 @@ class SilentHill3Context(CommonContext):
             slot_world_version = self.slot_data.get("sh3ap_world_version")
             if protocol not in (None, PROTOCOL_VERSION):
                 logger.warning("This slot expects a different SH3AP pipe protocol: %s", protocol)
-            if slot_world_version not in (WORLD_VERSION, "1.0.3", "1.0.2", "1.0.1"):
+            if slot_world_version not in (WORLD_VERSION, "1.0.5", "1.0.4", "1.0.3", "1.0.2", "1.0.1"):
                 logger.warning("This slot was generated by a different SH3AP world version: %s", slot_world_version)
             logger.info(
                 "Connected to Silent Hill 3 slot. Client build %s; pipe protocol %d.",
@@ -1717,6 +1745,9 @@ async def _sync_locations(ctx: SilentHill3Context, status: dict[str, str]) -> No
     if not authenticated:
         return
 
+    native_start = await asyncio.to_thread(_new_game_exchange, sys.modules[__name__])
+    _observe_native_new_game(ctx, native_start)
+
     # WORLD is native receiver readiness, not proof of a physical pickup or
     # New Game. On a fresh run it can remain zero until APSESSION FRESH=1.
     # Gating this block on WORLD prevents the classification/cleanup that binds
@@ -1760,6 +1791,9 @@ async def _sync_locations(ctx: SilentHill3Context, status: dict[str, str]) -> No
         ok, present_before, present_after = await asyncio.to_thread(
             _clear_unlock_all_new_game_inventory
         )
+        epoch = getattr(ctx, "native_new_game_epoch", 0)
+        if ok and epoch:
+            ok = bool(await asyncio.to_thread(_new_game_exchange, sys.modules[__name__], "cleaned", epoch))
         if ok:
             ctx.new_game_cleanup_done = True
             ctx.fresh_receive_session_pending = True
@@ -1825,7 +1859,7 @@ async def _sync_locations(ctx: SilentHill3Context, status: dict[str, str]) -> No
 
     newly_sent = await ctx.check_locations(completed)
     if newly_sent:
-        names = [ctx.location_names.lookup_in_game(loc, GAME_NAME) for loc in sorted(newly_sent)]
+        names = [display_name(ctx.location_names.lookup_in_game(loc, GAME_NAME)) for loc in sorted(newly_sent)]
         bridge_logger.debug("Sent SH3 live location checks immediately: %s", ", ".join(names))
 
 
@@ -1862,6 +1896,11 @@ async def _bind_receive_session(ctx: SilentHill3Context, status: dict[str, str])
         return status
     if not reply.startswith("APSESSION_OK"):
         raise RuntimeError(f"SH3AP APSESSION failed: {reply}")
+    epoch = getattr(ctx, "native_new_game_epoch", 0)
+    if fresh and epoch:
+        if not await asyncio.to_thread(_new_game_exchange, sys.modules[__name__], "bound", epoch):
+            raise RuntimeError("New Game changed or its delivery acknowledgement is unavailable; item replay is waiting")
+        ctx.native_new_game_epoch = 0
     ctx.session_bound_token = session_token
     ctx.fresh_receive_session_pending = False
     bridge_logger.info("Bound SH3AP delivery journal to AP session token %d (%s).", session_token, reply)
@@ -1993,12 +2032,12 @@ async def _sync_received_items(ctx: SilentHill3Context, status: dict[str, str]) 
                         bridge_logger.error("Bundle delivery paused: update the bundled runtime and restart the game. The reward remains queued.")
                         ctx.last_receive_error = problem
                     return
-            name = ctx.item_names.lookup_in_slot(item.item, ctx.slot)
+            name = display_name(ctx.item_names.lookup_in_slot(item.item, ctx.slot))
             sender_slot = int(getattr(item, "player", 0) or 0)
             location_id = int(getattr(item, "location", 0) or 0)
             flags = int(getattr(item, "flags", 0) or 0)
             try:
-                source_location = ctx.location_names.lookup_in_slot(location_id, sender_slot)
+                source_location = display_name(ctx.location_names.lookup_in_slot(location_id, sender_slot))
             except Exception:
                 source_location = f"Location {location_id}"
             if raw is None:
@@ -2019,7 +2058,7 @@ async def _sync_received_items(ctx: SilentHill3Context, status: dict[str, str]) 
             if reply.startswith("APRECEIVE_APPLIED"):
                 if not is_travel:
                     _record_applied_activity(ctx, item, applied_count)
-                    _queue_item_popup(ctx, item, ctx.slot, applied=True)
+                    _queue_item_popup(ctx, item, ctx.slot, applied=True, index=applied_count)
                 bridge_logger.debug(
                     "Applied AP item index %d to SH3: %s (raw %d). It remains replayable until SH3 saves.",
                     applied_count, name, raw,
@@ -2177,7 +2216,7 @@ async def _bridge_loop(ctx: SilentHill3Context) -> None:
             if len(ctx.items_received) > ctx.last_logged_received_count:
                 for index in range(ctx.last_logged_received_count, len(ctx.items_received)):
                     item = ctx.items_received[index]
-                    name = ctx.item_names.lookup_in_slot(item.item, ctx.slot) if ctx.slot is not None else str(item.item)
+                    name = display_name(ctx.item_names.lookup_in_slot(item.item, ctx.slot)) if ctx.slot is not None else str(item.item)
                     bridge_logger.debug("AP item stream index %d received: %s (id %d).", index, name, item.item)
                 ctx.last_logged_received_count = len(ctx.items_received)
 
@@ -2198,6 +2237,8 @@ async def _bridge_loop(ctx: SilentHill3Context) -> None:
             if problem != ctx.tracker_error:
                 bridge_logger.warning("Tracker display paused: %s", problem)
                 ctx.tracker_error = problem
+
+        await asyncio.to_thread(_sync_pickup_diagnostics, ctx, sys.modules[__name__])
         try:
             await _sync_poptracker_follow(ctx, sys.modules[__name__])
             ctx.poptracker_follow_error = None
@@ -2261,6 +2302,21 @@ async def _main(args) -> None:
 
 
 def launch_client(*launch_args: str) -> None:
+    # Acquire before setup, GUI, connection or any native mailbox writes.
+    # Windows releases the handle even if the owning process crashes.
+    from .client_instance import acquire, release
+    reservation = acquire()
+    if reservation is None and os.name == "nt":
+        from .runtime_setup import show_setup_message
+        show_setup_message("Silent Hill 3 Client", "Silent Hill 3 Client is already open.\n\nUse the existing client window. Close it before starting another client.")
+        return
+    try:
+        _launch_client_unlocked(*launch_args)
+    finally:
+        release(reservation)
+
+
+def _launch_client_unlocked(*launch_args: str) -> None:
     Utils.init_logging("SilentHillClient", exception_logger="Client")
     parser = get_base_parser()
     parser.add_argument("--game", choices=("sh3",), default="sh3", help="Game adapter (currently sh3).")

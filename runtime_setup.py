@@ -14,7 +14,8 @@ import subprocess
 import tempfile
 import uuid
 
-EXE_SHA256 = '339377564d7764d34e94eb4e4f7dadbacb233f625ca66321d08c22f6b813ff57'
+EXE_SHA256 = '51107165bf3c6efae521392b3243b233fcb3661a28755dadfabca383be8e66ee'
+PREVIOUS_UFO_AP_EXE_SHA256 = '339377564d7764d34e94eb4e4f7dadbacb233f625ca66321d08c22f6b813ff57'
 PREVIOUS_207_AP_EXE_SHA256 = 'f392c40f8fec8875de8694abeeaffdc843b7f5627128a7dfa3b5230662de80ce'
 PREVIOUS_206_AP_EXE_SHA256 = '44559c26044f0777fe3bd1764bfb795e13557b2514e1c9c6ed09b4ada8d6fe79'
 PREVIOUS_205_AP_EXE_SHA256 = '628eee68f65be396630d70cfaaf2034b0e3f756ea35ceb62425f1e5e6c430b6c'
@@ -736,6 +737,8 @@ def supported_exe_mode(folder: Path) -> str:
     value = digest(exe.read_bytes())
     if value == EXE_SHA256:
         return 'AP'
+    if value == PREVIOUS_UFO_AP_EXE_SHA256:
+        return 'AP-PreviousUFO'
     if value == PREVIOUS_207_AP_EXE_SHA256:
         return 'AP-Previous207'
     if value == PREVIOUS_206_AP_EXE_SHA256:
@@ -1394,8 +1397,9 @@ def stage_runtime_for_ap_enable(folder: Path, is_game_running, payloads=None) ->
     missing files here using the same safe disabled naming used by Vanilla/off
     mode, without creating the disabled marker or changing sh3.exe/save links.
 
-    Existing active production ASIs are left alone. Existing disabled copies are
-    refreshed to the packaged bytes. Plain-.asi legacy copies inside the disabled
+    Existing active production ASIs are refreshed in place before the mode tool
+    validates their hashes. Existing disabled copies are refreshed to the
+    packaged bytes. Plain-.asi legacy copies inside the disabled
     directory are backed up and neutralized so recursive loaders cannot see them.
     """
     folder = folder.expanduser().resolve()
@@ -1412,6 +1416,7 @@ def stage_runtime_for_ap_enable(folder: Path, is_game_running, payloads=None) ->
     payloads = bundled_files() if payloads is None else payloads
 
     changes: dict[str, tuple[bytes | None, bytes]] = {}
+    active_names: set[str] = set()
     legacy: dict[str, bytes] = {}
     for name, data in payloads.items():
         if Path(name).name != name or not name.endswith('.asi'):
@@ -1419,11 +1424,13 @@ def stage_runtime_for_ap_enable(folder: Path, is_game_running, payloads=None) ->
         active = scripts / name
         if active.is_symlink():
             raise ValueError(f'Runtime file is a link: {name}')
-        # An existing active copy is authoritative for the mode transition. The
-        # normal install_runtime() pass after AP activation will atomically refresh
-        # it to this package if it is older. Do not manufacture a conflicting
-        # active+disabled pair here.
+        # The mode tool validates the new package hashes before activation.
+        # Refresh old active files now, keeping their location and backups.
         if active.is_file():
+            old = active.read_bytes()
+            if old != data:
+                active_names.add(name)
+                changes[name] = (old, data)
             continue
         target = disabled / (name + DISABLED_RUNTIME_SUFFIX)
         if target.is_symlink():
@@ -1444,9 +1451,10 @@ def stage_runtime_for_ap_enable(folder: Path, is_game_running, payloads=None) ->
     backup.mkdir(parents=True)
     journal: dict[str, dict[str, str | None]] = {}
     for name, (old, new) in changes.items():
+        backup_name = name if name in active_names else name + DISABLED_RUNTIME_SUFFIX
         if old is not None:
-            (backup / (name + DISABLED_RUNTIME_SUFFIX + '.bak')).write_bytes(old)
-        journal[name + DISABLED_RUNTIME_SUFFIX] = {
+            (backup / (backup_name + '.bak')).write_bytes(old)
+        journal[backup_name] = {
             'previous_sha256': digest(old) if old is not None else None,
             'installed_sha256': digest(new),
         }
@@ -1467,12 +1475,12 @@ def stage_runtime_for_ap_enable(folder: Path, is_game_running, payloads=None) ->
             # Re-check that an active file did not appear between inspection and
             # publication; never create ambiguous active+disabled copies.
             active = scripts / name
-            if active.is_file():
+            if name not in active_names and active.is_file():
                 raise ValueError(f'{name} became active during setup; installation cancelled.')
-            target = disabled / (name + DISABLED_RUNTIME_SUFFIX)
+            target = active if name in active_names else disabled / (name + DISABLED_RUNTIME_SUFFIX)
             current = target.read_bytes() if target.exists() else None
             if current != old:
-                raise ValueError(f'{name} disabled copy changed during setup; installation cancelled.')
+                raise ValueError(f'{name} runtime copy changed during setup; installation cancelled.')
             atomic_write(target, new)
             written.append(name)
             if target.read_bytes() != new:
@@ -1488,7 +1496,7 @@ def stage_runtime_for_ap_enable(folder: Path, is_game_running, payloads=None) ->
             atomic_write(disabled / name, legacy[name])
         for name in reversed(written):
             old, new = changes[name]
-            target = disabled / (name + DISABLED_RUNTIME_SUFFIX)
+            target = scripts / name if name in active_names else disabled / (name + DISABLED_RUNTIME_SUFFIX)
             if target.read_bytes() != new:
                 raise OSError(f'{name} changed during rollback; original retained in {backup}')
             if old is None:

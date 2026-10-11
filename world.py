@@ -444,7 +444,7 @@ class SilentHill3World(World):
             "random_starting_area": bool(self.options.random_starting_area.value),
             "starting_area_row": self.starting_area_row,
             "starting_area_name": (FAST_TRAVEL_MENU_LOCATIONS[self.starting_area_row]
-                                   if self.starting_area_row is not None else 'Mall 1F Toilet Fast Travel'),
+                                   if self.starting_area_row is not None else 'Mall Toilet Fast Travel'),
             "bundle_receive_protocol": 1,
             "random_start_protocol": 1,
             "fast_travel_unlocks": self.options.fast_travel_unlocks.current_key,

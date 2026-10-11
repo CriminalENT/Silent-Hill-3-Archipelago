@@ -1,7 +1,7 @@
 {
-  "version": "1.0.4",
-  "label": "SH3AP v1.0.4",
-  "sha256": "4dfeabb44f68a2a059b96349f893f8b130c3239527294471d1aea458d28b3b68",
+  "version": "1.0.6",
+  "label": "SH3AP v1.0.6",
+  "sha256": "39c735528d6377166441f8b42b33395650d00040079f2a05f217a242851efaff",
   "image_sha256": "30338f4265420ba6dbd41c15aa1db5da5d629640bed52c05af575f84b4981902",
   "font_sha256": "7f33328e6b4d4cd21b45fa625791928c9407dc702db6780e56b09ca9a3ecaa67",
   "source_label": {

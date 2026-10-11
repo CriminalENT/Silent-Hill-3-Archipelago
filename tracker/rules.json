@@ -226,13 +226,17 @@
       "verified": true
     },
     "Subway B5 Train - Handgun Bullets 1": {
-      "all": [],
+      "all": [
+        "Flashlight"
+      ],
       "any": [],
       "entry_region": "train",
       "verified": true
     },
     "Subway B5 Train - Handgun Bullets 2": {
-      "all": [],
+      "all": [
+        "Flashlight"
+      ],
       "any": [],
       "entry_region": "train",
       "verified": true
@@ -381,61 +385,61 @@
       "entry_region": "apartment_after",
       "verified": true
     },
-    "Mall 1F Toilet Fast Travel": {
+    "Mall Toilet Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "mall",
       "verified": true
     },
-    "Mall 2F Storeroom Fast Travel": {
+    "2nd Floor Storeroom Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "mall",
       "verified": true
     },
-    "Otherworld Mall 1F First Aid Room Fast Travel": {
+    "First Aid Room Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_mall",
       "verified": true
     },
-    "Otherworld Mall 2F Walkway Fast Travel": {
+    "2nd Floor Walkway Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_upper",
       "verified": true
     },
-    "Otherworld Mall 2F Sports Shop Fast Travel": {
+    "Sports Shop Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_moths",
       "verified": true
     },
-    "Mall 1F Burger Shop Fast Travel": {
+    "Burger Shop Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "mall_exit",
       "verified": true
     },
-    "Subway B2 Stairs Fast Travel": {
+    "Subway Stairs Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "subway",
       "verified": true
     },
-    "Subway B5 Train Fast Travel": {
+    "In the Train Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "train",
       "verified": true
     },
-    "Underpass Platform (Unknown Station) Fast Travel": {
+    "Platform (Unknown Station) Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "platform_entry",
       "verified": true
     },
-    "Underpass Underground Passage Office Fast Travel": {
+    "Underground Passage Office Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "underpass",
@@ -453,31 +457,31 @@
       "entry_region": "construction",
       "verified": true
     },
-    "Office 3F Dance Studio Fast Travel": {
+    "3F Dance Studio Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "office",
       "verified": true
     },
-    "Office 2F 2nd Floor Hall Fast Travel": {
+    "2F 2nd Floor Hall Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "office_lower",
       "verified": true
     },
-    "Otherworld Office 2F Mental Health Clinic Fast Travel": {
+    "2F Mental Health Clinic Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_office",
       "verified": true
     },
-    "Otherworld Office 5F Gallery Fast Travel": {
+    "5F Gallery Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_office",
       "verified": true
     },
-    "Daisy Villa Apartments Fast Travel": {
+    "Apt. Hall Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "apartments",
@@ -489,67 +493,67 @@
       "entry_region": "town_checks",
       "verified": true
     },
-    "Hospital 1F Office Fast Travel": {
+    "1F Office Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "hospital_lobby_checks",
       "verified": true
     },
-    "Hospital 3F Store Room Fast Travel": {
+    "3F Store Room Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "hospital_store",
       "verified": true
     },
-    "Otherworld Hospital 1F Exam Room Fast Travel": {
+    "Exam Room Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_hospital",
       "verified": true
     },
-    "Otherworld Hospital 3F S03 Fast Travel": {
+    "Room S03 Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_hospital",
       "verified": true
     },
-    "Otherworld Hospital 1F C4 Fast Travel": {
+    "Room C4 Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "ow_c4",
       "verified": true
     },
-    "Amusement Park Souvenir Shop Fast Travel": {
+    "Souvenir Shop Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "park",
       "verified": true
     },
-    "Amusement Park Haunted Mansion Fast Travel": {
+    "Haunted Mansion Entrance Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "park_after_coaster",
       "verified": true
     },
-    "Amusement Park Fortuneteller Fast Travel": {
+    "Fortuneteller Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "park_fortune",
       "verified": true
     },
-    "Church 1F Chapel Fast Travel": {
+    "Chapel Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "church_entry",
       "verified": true
     },
-    "Church 1F Belfry Fast Travel": {
+    "Belfry Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "church_entry",
       "verified": true
     },
-    "Church BF Alessa's Room Fast Travel": {
+    "Alessa's Room Fast Travel": {
       "all": [],
       "any": [],
       "entry_region": "church",
@@ -811,7 +815,6 @@
     },
     "Sewer Fairy - Gold Pipe": {
       "all": [
-        "Dryer",
         "Steel Pipe"
       ],
       "any": [],
@@ -820,7 +823,6 @@
     },
     "Sewer Fairy - Silver Pipe": {
       "all": [
-        "Dryer",
         "Steel Pipe"
       ],
       "any": [],
@@ -1022,9 +1024,7 @@
       "verified": true
     },
     "Subway B5 Platform 3 - Supply": {
-      "all": [
-        "Flashlight"
-      ],
+      "all": [],
       "any": [],
       "entry_region": "subway",
       "verified": true
@@ -1453,25 +1453,19 @@
       "verified": true
     },
     "Subway B4 Supplies - Health Drink 1": {
-      "all": [
-        "Flashlight"
-      ],
+      "all": [],
       "any": [],
       "entry_region": "subway",
       "verified": true
     },
     "Subway B4 Supplies - Health Drink 2": {
-      "all": [
-        "Flashlight"
-      ],
+      "all": [],
       "any": [],
       "entry_region": "subway",
       "verified": true
     },
     "Subway B4 Supplies - Handgun Bullets": {
-      "all": [
-        "Flashlight"
-      ],
+      "all": [],
       "any": [],
       "entry_region": "subway",
       "verified": true

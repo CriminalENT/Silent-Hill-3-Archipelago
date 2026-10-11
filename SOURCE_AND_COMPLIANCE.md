@@ -1,4 +1,4 @@
-# Source availability — 1.0.2
+# Source availability — 1.0.6
 
 All Python world/client/installer code and the PowerShell/batch tools are available.
 The accompanying GitHub source archive includes those sources, tests, native patch

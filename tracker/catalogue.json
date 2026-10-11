@@ -47,8 +47,8 @@
     },
     {
       "index": 17,
-      "name": "Mall 1F Toilet Fast Travel",
-      "vanilla": "Mall 1F Toilet Fast Travel",
+      "name": "Mall Toilet Fast Travel",
+      "vanilla": "Mall Toilet Fast Travel",
       "requirements": "Start",
       "id": 1397248017,
       "area": 1,
@@ -164,7 +164,7 @@
     },
     {
       "index": 29,
-      "name": "Mall 2F Storeroom Fast Travel",
+      "name": "2nd Floor Storeroom Fast Travel",
       "vanilla": "2nd Floor Storeroom Fast Travel",
       "requirements": "-",
       "id": 1397248029,
@@ -245,7 +245,7 @@
     },
     {
       "index": 39,
-      "name": "Otherworld Mall 1F First Aid Room Fast Travel",
+      "name": "First Aid Room Fast Travel",
       "vanilla": "First Aid Room Fast Travel",
       "requirements": "-",
       "id": 1397248039,
@@ -344,7 +344,7 @@
     },
     {
       "index": 50,
-      "name": "Otherworld Mall 2F Walkway Fast Travel",
+      "name": "2nd Floor Walkway Fast Travel",
       "vanilla": "2nd Floor Walkway Fast Travel",
       "requirements": "Hanger",
       "id": 1397248050,
@@ -479,7 +479,7 @@
     },
     {
       "index": 65,
-      "name": "Otherworld Mall 2F Sports Shop Fast Travel",
+      "name": "Sports Shop Fast Travel",
       "vanilla": "Sports Shop Fast Travel",
       "requirements": "-",
       "id": 1397248065,
@@ -551,7 +551,7 @@
     },
     {
       "index": 73,
-      "name": "Mall 1F Burger Shop Fast Travel",
+      "name": "Burger Shop Fast Travel",
       "vanilla": "Burger Shop Fast Travel",
       "requirements": "-",
       "id": 1397248073,
@@ -569,8 +569,8 @@
     },
     {
       "index": 75,
-      "name": "Subway B2 Stairs Fast Travel",
-      "vanilla": "Subway B2 Stairs Fast Travel",
+      "name": "Subway Stairs Fast Travel",
+      "vanilla": "Subway Stairs Fast Travel",
       "requirements": "-",
       "id": 1397248075,
       "area": 3,
@@ -589,7 +589,7 @@
       "index": 224,
       "name": "Subway B5 Platform 3 - Supply",
       "vanilla": "Health Drink",
-      "requirements": "Flashlight",
+      "requirements": "-",
       "id": 1397248224,
       "area": 3,
       "implemented": true
@@ -632,8 +632,8 @@
     },
     {
       "index": 82,
-      "name": "Subway B5 Train Fast Travel",
-      "vanilla": "In the In The Train Fast Travel",
+      "name": "In the Train Fast Travel",
+      "vanilla": "In the Train Fast Travel",
       "requirements": "-",
       "id": 1397248082,
       "area": 3,
@@ -661,7 +661,7 @@
       "index": 85,
       "name": "Subway B5 Train - Handgun Bullets 1",
       "vanilla": "Handgun Bullets",
-      "requirements": "-",
+      "requirements": "Flashlight",
       "id": 1397248085,
       "area": 3,
       "implemented": true
@@ -670,15 +670,15 @@
       "index": 86,
       "name": "Subway B5 Train - Handgun Bullets 2",
       "vanilla": "Handgun Bullets",
-      "requirements": "-",
+      "requirements": "Flashlight",
       "id": 1397248086,
       "area": 3,
       "implemented": true
     },
     {
       "index": 87,
-      "name": "Underpass Platform (Unknown Station) Fast Travel",
-      "vanilla": "Platform (unknown station) Fast Travel",
+      "name": "Platform (Unknown Station) Fast Travel",
+      "vanilla": "Platform (Unknown Station) Fast Travel",
       "requirements": "-",
       "id": 1397248087,
       "area": 4,
@@ -731,8 +731,8 @@
     },
     {
       "index": 96,
-      "name": "Underpass Underground Passage Office Fast Travel",
-      "vanilla": "Underground Passage Fast Travel",
+      "name": "Underground Passage Office Fast Travel",
+      "vanilla": "Underground Passage Office Fast Travel",
       "requirements": "-",
       "id": 1397248096,
       "area": 4,
@@ -804,7 +804,7 @@
     {
       "index": 104,
       "name": "Sewer Office Fast Travel",
-      "vanilla": "Sewers Fast Travel",
+      "vanilla": "Sewer Office Fast Travel",
       "requirements": "-",
       "id": 1397248104,
       "area": 5,
@@ -823,7 +823,7 @@
       "index": 106,
       "name": "Sewer Fairy - Gold Pipe",
       "vanilla": "Gold Pipe",
-      "requirements": "Dryer AND Steel Pipe",
+      "requirements": "Steel Pipe",
       "id": 1397248106,
       "area": 5,
       "implemented": true
@@ -832,7 +832,7 @@
       "index": 107,
       "name": "Sewer Fairy - Silver Pipe",
       "vanilla": "Silver Pipe",
-      "requirements": "Dryer AND Steel Pipe",
+      "requirements": "Steel Pipe",
       "id": 1397248107,
       "area": 5,
       "implemented": true
@@ -893,8 +893,8 @@
     },
     {
       "index": 114,
-      "name": "Office 3F Dance Studio Fast Travel",
-      "vanilla": "Dance Hall Office Fast Travel",
+      "name": "3F Dance Studio Fast Travel",
+      "vanilla": "3F Dance Studio Fast Travel",
       "requirements": "-",
       "id": 1397248114,
       "area": 7,
@@ -974,8 +974,8 @@
     },
     {
       "index": 123,
-      "name": "Office 2F 2nd Floor Hall Fast Travel",
-      "vanilla": "2nd Floor Hall Fast Travel",
+      "name": "2F 2nd Floor Hall Fast Travel",
+      "vanilla": "2F 2nd Floor Hall Fast Travel",
       "requirements": "Rope AND Jack",
       "id": 1397248123,
       "area": 7,
@@ -1001,8 +1001,8 @@
     },
     {
       "index": 126,
-      "name": "Otherworld Office 2F Mental Health Clinic Fast Travel",
-      "vanilla": "Mental Clinic Fast Travel",
+      "name": "2F Mental Health Clinic Fast Travel",
+      "vanilla": "2F Mental Health Clinic Fast Travel",
       "requirements": "-",
       "id": 1397248126,
       "area": 8,
@@ -1091,8 +1091,8 @@
     },
     {
       "index": 136,
-      "name": "Otherworld Office 5F Gallery Fast Travel",
-      "vanilla": "Gallery Fast Travel",
+      "name": "5F Gallery Fast Travel",
+      "vanilla": "5F Gallery Fast Travel",
       "requirements": "-",
       "id": 1397248136,
       "area": 8,
@@ -1136,7 +1136,7 @@
     },
     {
       "index": 141,
-      "name": "Daisy Villa Apartments Fast Travel",
+      "name": "Apt. Hall Fast Travel",
       "vanilla": "Apt. Hall Fast Travel",
       "requirements": "-",
       "id": 1397248141,
@@ -1235,8 +1235,8 @@
     },
     {
       "index": 152,
-      "name": "Hospital 1F Office Fast Travel",
-      "vanilla": "Hospital 1F Office Fast Travel",
+      "name": "1F Office Fast Travel",
+      "vanilla": "1F Office Fast Travel",
       "requirements": "-",
       "id": 1397248152,
       "area": 11,
@@ -1334,8 +1334,8 @@
     },
     {
       "index": 163,
-      "name": "Hospital 3F Store Room Fast Travel",
-      "vanilla": "Hospital 3F Store Room Fast Travel",
+      "name": "3F Store Room Fast Travel",
+      "vanilla": "3F Store Room Fast Travel",
       "requirements": "-",
       "id": 1397248163,
       "area": 11,
@@ -1415,7 +1415,7 @@
     },
     {
       "index": 172,
-      "name": "Otherworld Hospital 3F S03 Fast Travel",
+      "name": "Room S03 Fast Travel",
       "vanilla": "Room S03 Fast Travel",
       "requirements": "-",
       "id": 1397248172,
@@ -1478,7 +1478,7 @@
     },
     {
       "index": 179,
-      "name": "Otherworld Hospital 1F Exam Room Fast Travel",
+      "name": "Exam Room Fast Travel",
       "vanilla": "Exam Room Fast Travel",
       "requirements": "-",
       "id": 1397248179,
@@ -1514,7 +1514,7 @@
     },
     {
       "index": 181,
-      "name": "Otherworld Hospital 1F C4 Fast Travel",
+      "name": "Room C4 Fast Travel",
       "vanilla": "Room C4 Fast Travel",
       "requirements": "Cremated Key",
       "id": 1397248181,
@@ -1568,7 +1568,7 @@
     },
     {
       "index": 187,
-      "name": "Amusement Park Souvenir Shop Fast Travel",
+      "name": "Souvenir Shop Fast Travel",
       "vanilla": "Souvenir Shop Fast Travel",
       "requirements": "-",
       "id": 1397248187,
@@ -1595,7 +1595,7 @@
     },
     {
       "index": 190,
-      "name": "Amusement Park Haunted Mansion Fast Travel",
+      "name": "Haunted Mansion Entrance Fast Travel",
       "vanilla": "Haunted Mansion Entrance Fast Travel",
       "requirements": "Roller Coaster Key",
       "id": 1397248190,
@@ -1667,7 +1667,7 @@
     },
     {
       "index": 199,
-      "name": "Amusement Park Fortuneteller Fast Travel",
+      "name": "Fortuneteller Fast Travel",
       "vanilla": "Fortuneteller Fast Travel",
       "requirements": "-",
       "id": 1397248199,
@@ -1721,7 +1721,7 @@
     },
     {
       "index": 205,
-      "name": "Church 1F Chapel Fast Travel",
+      "name": "Chapel Fast Travel",
       "vanilla": "Chapel Fast Travel",
       "requirements": "-",
       "id": 1397248205,
@@ -1766,7 +1766,7 @@
     },
     {
       "index": 210,
-      "name": "Church 1F Belfry Fast Travel",
+      "name": "Belfry Fast Travel",
       "vanilla": "Belfry Fast Travel",
       "requirements": "-",
       "id": 1397248210,
@@ -1802,7 +1802,7 @@
     },
     {
       "index": 214,
-      "name": "Church BF Alessa's Room Fast Travel",
+      "name": "Alessa's Room Fast Travel",
       "vanilla": "Alessa's Room Fast Travel",
       "requirements": "-",
       "id": 1397248214,
@@ -1894,7 +1894,7 @@
       "index": 227,
       "name": "Subway B4 Supplies - Health Drink 1",
       "vanilla": "Health Drink",
-      "requirements": "Flashlight",
+      "requirements": "-",
       "id": 1397248227,
       "area": 3,
       "implemented": true
@@ -1903,7 +1903,7 @@
       "index": 228,
       "name": "Subway B4 Supplies - Health Drink 2",
       "vanilla": "Health Drink",
-      "requirements": "Flashlight",
+      "requirements": "-",
       "id": 1397248228,
       "area": 3,
       "implemented": true
@@ -1912,7 +1912,7 @@
       "index": 229,
       "name": "Subway B4 Supplies - Handgun Bullets",
       "vanilla": "Handgun Bullets",
-      "requirements": "Flashlight",
+      "requirements": "-",
       "id": 1397248229,
       "area": 3,
       "implemented": true

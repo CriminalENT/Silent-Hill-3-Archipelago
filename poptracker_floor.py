@@ -70,6 +70,12 @@ def page_for_location(stage, room, position, flags):
     if room == 196 and stage in (30, 31, 32):
         map_id = 24
     page = MAP_PAGES.get(map_id)
+    # B3 has no native map: room 208 and the elevator's B3 selector return 0.
+    # PopTracker does cover B3 on its lower OW Hospital sheet. Keep the native
+    # map ID for diagnostics, but publish that custom page instead of no floor.
+    if stage in (30, 31, 32) and (room == 208 or
+            (room == 206 and flags[2] & 0x10000000)):
+        page = ('OW Hospital', '1F / B3')
     # These custom pack pages cover areas without an in-game map.
     if page is None:
         if stage in (33,34,35): page = ('Amusement Park','Map')

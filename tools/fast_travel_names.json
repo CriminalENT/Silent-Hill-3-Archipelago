@@ -1,0 +1,234 @@
+[
+  {
+    "row": 0,
+    "location_id": 1397248017,
+    "item_id": 1397240064,
+    "old_name": "Mall 1F Toilet Fast Travel",
+    "menu_label": "Mall Toilet",
+    "name": "Mall Toilet Fast Travel"
+  },
+  {
+    "row": 1,
+    "location_id": 1397248029,
+    "item_id": 1397240065,
+    "old_name": "Mall 2F Storeroom Fast Travel",
+    "menu_label": "2nd Floor Storeroom",
+    "name": "2nd Floor Storeroom Fast Travel"
+  },
+  {
+    "row": 2,
+    "location_id": 1397248073,
+    "item_id": 1397240066,
+    "old_name": "Mall 1F Burger Shop Fast Travel",
+    "menu_label": "Burger Shop",
+    "name": "Burger Shop Fast Travel"
+  },
+  {
+    "row": 3,
+    "location_id": 1397248039,
+    "item_id": 1397240067,
+    "old_name": "Otherworld Mall 1F First Aid Room Fast Travel",
+    "menu_label": "First Aid Room",
+    "name": "First Aid Room Fast Travel"
+  },
+  {
+    "row": 4,
+    "location_id": 1397248050,
+    "item_id": 1397240068,
+    "old_name": "Otherworld Mall 2F Walkway Fast Travel",
+    "menu_label": "2nd Floor Walkway",
+    "name": "2nd Floor Walkway Fast Travel"
+  },
+  {
+    "row": 5,
+    "location_id": 1397248065,
+    "item_id": 1397240069,
+    "old_name": "Otherworld Mall 2F Sports Shop Fast Travel",
+    "menu_label": "Sports Shop",
+    "name": "Sports Shop Fast Travel"
+  },
+  {
+    "row": 6,
+    "location_id": 1397248075,
+    "item_id": 1397240070,
+    "old_name": "Subway B2 Stairs Fast Travel",
+    "menu_label": "Subway Stairs",
+    "name": "Subway Stairs Fast Travel"
+  },
+  {
+    "row": 7,
+    "location_id": 1397248082,
+    "item_id": 1397240071,
+    "old_name": "Subway B5 Train Fast Travel",
+    "menu_label": "In the Train",
+    "name": "In the Train Fast Travel"
+  },
+  {
+    "row": 8,
+    "location_id": 1397248087,
+    "item_id": 1397240072,
+    "old_name": "Underpass Platform (Unknown Station) Fast Travel",
+    "menu_label": "Platform (Unknown Station)",
+    "name": "Platform (Unknown Station) Fast Travel"
+  },
+  {
+    "row": 9,
+    "location_id": 1397248096,
+    "item_id": 1397240073,
+    "old_name": "Underpass Underground Passage Office Fast Travel",
+    "menu_label": "Underground Passage Office",
+    "name": "Underground Passage Office Fast Travel"
+  },
+  {
+    "row": 10,
+    "location_id": 1397248104,
+    "item_id": 1397240074,
+    "old_name": "Sewer Office Fast Travel",
+    "menu_label": "Sewer Office",
+    "name": "Sewer Office Fast Travel"
+  },
+  {
+    "row": 11,
+    "location_id": 1397248108,
+    "item_id": 1397240075,
+    "old_name": "Construction Site Fast Travel",
+    "menu_label": "Construction Site",
+    "name": "Construction Site Fast Travel"
+  },
+  {
+    "row": 12,
+    "location_id": 1397248114,
+    "item_id": 1397240076,
+    "old_name": "Office 3F Dance Studio Fast Travel",
+    "menu_label": "3F Dance Studio",
+    "name": "3F Dance Studio Fast Travel"
+  },
+  {
+    "row": 13,
+    "location_id": 1397248123,
+    "item_id": 1397240077,
+    "old_name": "Office 2F 2nd Floor Hall Fast Travel",
+    "menu_label": "2F 2nd Floor Hall",
+    "name": "2F 2nd Floor Hall Fast Travel"
+  },
+  {
+    "row": 14,
+    "location_id": 1397248126,
+    "item_id": 1397240078,
+    "old_name": "Otherworld Office 2F Mental Health Clinic Fast Travel",
+    "menu_label": "2F Mental Health Clinic",
+    "name": "2F Mental Health Clinic Fast Travel"
+  },
+  {
+    "row": 15,
+    "location_id": 1397248136,
+    "item_id": 1397240079,
+    "old_name": "Otherworld Office 5F Gallery Fast Travel",
+    "menu_label": "5F Gallery",
+    "name": "5F Gallery Fast Travel"
+  },
+  {
+    "row": 16,
+    "location_id": 1397248141,
+    "item_id": 1397240080,
+    "old_name": "Daisy Villa Apartments Fast Travel",
+    "menu_label": "Apt. Hall",
+    "name": "Apt. Hall Fast Travel"
+  },
+  {
+    "row": 17,
+    "location_id": 1397248146,
+    "item_id": 1397240081,
+    "old_name": "Motel Fast Travel",
+    "menu_label": "Motel",
+    "name": "Motel Fast Travel"
+  },
+  {
+    "row": 18,
+    "location_id": 1397248152,
+    "item_id": 1397240082,
+    "old_name": "Hospital 1F Office Fast Travel",
+    "menu_label": "1F Office",
+    "name": "1F Office Fast Travel"
+  },
+  {
+    "row": 19,
+    "location_id": 1397248163,
+    "item_id": 1397240083,
+    "old_name": "Hospital 3F Store Room Fast Travel",
+    "menu_label": "3F Store Room",
+    "name": "3F Store Room Fast Travel"
+  },
+  {
+    "row": 20,
+    "location_id": 1397248179,
+    "item_id": 1397240084,
+    "old_name": "Otherworld Hospital 1F Exam Room Fast Travel",
+    "menu_label": "Exam Room",
+    "name": "Exam Room Fast Travel"
+  },
+  {
+    "row": 21,
+    "location_id": 1397248172,
+    "item_id": 1397240085,
+    "old_name": "Otherworld Hospital 3F S03 Fast Travel",
+    "menu_label": "Room S03",
+    "name": "Room S03 Fast Travel"
+  },
+  {
+    "row": 22,
+    "location_id": 1397248181,
+    "item_id": 1397240086,
+    "old_name": "Otherworld Hospital 1F C4 Fast Travel",
+    "menu_label": "Room C4",
+    "name": "Room C4 Fast Travel"
+  },
+  {
+    "row": 23,
+    "location_id": 1397248187,
+    "item_id": 1397240087,
+    "old_name": "Amusement Park Souvenir Shop Fast Travel",
+    "menu_label": "Souvenir Shop",
+    "name": "Souvenir Shop Fast Travel"
+  },
+  {
+    "row": 24,
+    "location_id": 1397248190,
+    "item_id": 1397240088,
+    "old_name": "Amusement Park Haunted Mansion Fast Travel",
+    "menu_label": "Haunted Mansion Entrance",
+    "name": "Haunted Mansion Entrance Fast Travel"
+  },
+  {
+    "row": 25,
+    "location_id": 1397248199,
+    "item_id": 1397240089,
+    "old_name": "Amusement Park Fortuneteller Fast Travel",
+    "menu_label": "Fortuneteller",
+    "name": "Fortuneteller Fast Travel"
+  },
+  {
+    "row": 26,
+    "location_id": 1397248205,
+    "item_id": 1397240090,
+    "old_name": "Church 1F Chapel Fast Travel",
+    "menu_label": "Chapel",
+    "name": "Chapel Fast Travel"
+  },
+  {
+    "row": 27,
+    "location_id": 1397248210,
+    "item_id": 1397240091,
+    "old_name": "Church 1F Belfry Fast Travel",
+    "menu_label": "Belfry",
+    "name": "Belfry Fast Travel"
+  },
+  {
+    "row": 28,
+    "location_id": 1397248214,
+    "item_id": 1397240092,
+    "old_name": "Church BF Alessa's Room Fast Travel",
+    "menu_label": "Alessa's Room",
+    "name": "Alessa's Room Fast Travel"
+  }
+]

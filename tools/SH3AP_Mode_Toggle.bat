@@ -32,7 +32,8 @@ $ErrorActionPreference = 'Stop'
 $BaseDir = $env:SH3AP_BASE
 if ([string]::IsNullOrWhiteSpace($BaseDir)) { throw 'Internal error: SH3AP_BASE was not passed to the mode switch.' }
 
-$AP_EXE_HASH = '339377564d7764d34e94eb4e4f7dadbacb233f625ca66321d08c22f6b813ff57'
+$AP_EXE_HASH = '51107165bf3c6efae521392b3243b233fcb3661a28755dadfabca383be8e66ee'
+$PREVIOUS_UFO_AP_EXE_HASH = '339377564d7764d34e94eb4e4f7dadbacb233f625ca66321d08c22f6b813ff57'
 $PREVIOUS_207_AP_EXE_HASH = 'f392c40f8fec8875de8694abeeaffdc843b7f5627128a7dfa3b5230662de80ce'
 $PREVIOUS_206_AP_EXE_HASH = '44559c26044f0777fe3bd1764bfb795e13557b2514e1c9c6ed09b4ada8d6fe79'
 $PREVIOUS_205_AP_EXE_HASH = '628eee68f65be396630d70cfaaf2034b0e3f756ea35ceb62425f1e5e6c430b6c'
@@ -45,11 +46,11 @@ $MarkerName = 'SH3AP_DISABLED.flag'
 $DisabledSuffix = '.sh3ap-disabled'
 $RuntimeNames = @('SH3AP.asi','SH3AP_UI.asi','SH3AP_Activity.asi','SH3AP_ItemMessage.asi','SH3AP_LiveBridge.asi','SH3AP_Controller.asi','SH3AP_Bindings_New.asi','SH3AP_Reset_Keybinds.asi','SH3AP_Rebind_FrameLock.asi')
 $RuntimeHashes = @{
-    'SH3AP.asi'='c3ad8abb0c89408365e0919cfab86a3e9a11402867431119c187d275cdd0bee3'
-    'SH3AP_UI.asi'='fe2ac87570d998df86c9d1b78c781ac5666f07312d7e076168de12d5582b0050'
+    'SH3AP.asi'='5b6aee062be87afb6e84124708680c6da834b77939b4f85d371b9e224509b9d9'
+    'SH3AP_UI.asi'='330b3cbc67e831dbaaee8d4670b0a3c7c69f7d4eff5542ff52a85a6eb90978d6'
     'SH3AP_Activity.asi'='48d552aeb309caf8c814a8153108e916b362c2599c3e5835e3ff8fa321339a0b'
-    'SH3AP_ItemMessage.asi'='f77302e69a94f018d8fdf6e654f54cb45f5222726f8731be1d19a9405f0a0ead'
-    'SH3AP_LiveBridge.asi'='12dbb9520f13127e5f457040a261430d8c11cb4b4508ca20f2700abaf34e3e0f'
+    'SH3AP_ItemMessage.asi'='a270e5aa561f06805fae19bf815f4540d50ee17c00d0a77cb021a4708e14083e'
+    'SH3AP_LiveBridge.asi'='3a8179f6323a0ade9f9db14e7b02153df4a45996fc8275350e4031af2edddb10'
     'SH3AP_Controller.asi'='868652a3635c2b3f68f30c9a86ed8c1a6bc15b038e50c2244115f3fbee819017'
     'SH3AP_Bindings_New.asi'='0e7a853c814991c460039aab0548e5aae028ba06d3920c44e55d0b475c5bdebc'
     'SH3AP_Reset_Keybinds.asi'='ca6fb3581ffa990ec0e43a366356ee897d1144440b61f7322c309c410c00979f'
@@ -108,12 +109,13 @@ $ExePatches = @(
     # function so the moan cannot return through stale system state.
     @{ Off=0x1D7858; Vanilla='7407'; AP='EB07' },
     @{ Off=0x1D87B6; Vanilla='7407'; AP='EB07' },
-    # Native extra-content availability. All normal extra IDs are forced available.
+    # Native extra-content availability. ID 9 (UFO ending) and ID 10
+    # (Naked Douglas) return false; the other extra-content IDs stay available.
     # ID 10 is Naked Douglas. Do NOT force it available in AP mode: return false
-    # for ID 10 and true for the other extra-content IDs. This prevents the easter
+    # for IDs 9/10 and true for the other extra-content IDs. This prevents the easter
     # egg from becoming active through the all-extras override. The shared
     # fresh-session getter remains untouched. Fully reversible in Vanilla mode.
-    @{ Off=0x20D020; Vanilla='8B4C240483F9060F849D00000083'; AP='8B44240483F80A0F95C00FB6C0C3' }
+    @{ Off=0x20D020; Vanilla='8B4C240483F9060F849D00000083F90B'; AP='8B4C240431C083E90983F9010F97C0C3' }
 )
 
 function Get-Hash([string]$Path) {
@@ -274,7 +276,7 @@ function Assert-Game-Closed {
 
 function Patch-Exe([string]$Exe, [ValidateSet('AP','Vanilla')] [string]$Target) {
     $hash = Get-Hash $Exe
-    $supported = @($VANILLA_EXE_HASH,$BROKEN_186_AP_EXE_HASH,$CANONICAL_AP_EXE_HASH,$PREVIOUS_193_AP_EXE_HASH,$PREVIOUS_203_AP_EXE_HASH,$PREVIOUS_205_AP_EXE_HASH,$PREVIOUS_206_AP_EXE_HASH,$PREVIOUS_207_AP_EXE_HASH,$AP_EXE_HASH)
+    $supported = @($VANILLA_EXE_HASH,$BROKEN_186_AP_EXE_HASH,$CANONICAL_AP_EXE_HASH,$PREVIOUS_193_AP_EXE_HASH,$PREVIOUS_203_AP_EXE_HASH,$PREVIOUS_205_AP_EXE_HASH,$PREVIOUS_206_AP_EXE_HASH,$PREVIOUS_207_AP_EXE_HASH,$PREVIOUS_UFO_AP_EXE_HASH,$AP_EXE_HASH)
     if ($supported -notcontains $hash) { throw "Unsupported sh3.exe hash: $hash" }
     if ($Target -eq 'AP' -and $hash -eq $AP_EXE_HASH) { return }
     if ($Target -eq 'Vanilla' -and $hash -eq $VANILLA_EXE_HASH) { return }
@@ -367,6 +369,17 @@ function Patch-Exe([string]$Exe, [ValidateSet('AP','Vanilla')] [string]$Target) 
         $stock = HexBytes '8B4C240483F9060F849D00000083F9'
         for ($i=0; $i -lt $old.Length; $i++) {
             if ($bytes[0x20D020+$i] -ne $old[$i]) { throw '0.0.207 Douglas-state migration verification failed at 0x20D020.' }
+        }
+        [Array]::Copy($stock,0,$bytes,0x20D020,$stock.Length)
+    }
+
+    # Older releases forced UFO availability through the all-extras override.
+    # Normalize only the exact verified previous AP head before either direction.
+    if ($hash -eq $PREVIOUS_UFO_AP_EXE_HASH) {
+        $old = HexBytes '8B44240483F80A0F95C00FB6C0C3F90B'
+        $stock = HexBytes '8B4C240483F9060F849D00000083F90B'
+        for ($i=0; $i -lt $old.Length; $i++) {
+            if ($bytes[0x20D020+$i] -ne $old[$i]) { throw 'Previous UFO-override migration verification failed at 0x20D020.' }
         }
         [Array]::Copy($stock,0,$bytes,0x20D020,$stock.Length)
     }
@@ -803,7 +816,7 @@ try {
     $externalSupportBefore = Capture-ExternalSupport $Root
 
     $exeHash = Get-Hash $Exe
-    if ($exeHash -ne $AP_EXE_HASH -and $exeHash -ne $PREVIOUS_207_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_206_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_205_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_203_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_193_AP_EXE_HASH -and $exeHash -ne $CANONICAL_AP_EXE_HASH -and $exeHash -ne $BROKEN_186_AP_EXE_HASH -and $exeHash -ne $VANILLA_EXE_HASH) { throw "Unsupported sh3.exe hash: $exeHash" }
+    if ($exeHash -ne $AP_EXE_HASH -and $exeHash -ne $PREVIOUS_UFO_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_207_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_206_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_205_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_203_AP_EXE_HASH -and $exeHash -ne $PREVIOUS_193_AP_EXE_HASH -and $exeHash -ne $CANONICAL_AP_EXE_HASH -and $exeHash -ne $BROKEN_186_AP_EXE_HASH -and $exeHash -ne $VANILLA_EXE_HASH) { throw "Unsupported sh3.exe hash: $exeHash" }
 
     $LiveSave = Join-Path $Root 'savedata'
     $APSave = Join-Path $Root 'savedataAP'
@@ -844,7 +857,7 @@ try {
     $legacyDisabledCount = if (Test-Path -LiteralPath $disabledDir -PathType Container) { @(Get-ChildItem -LiteralPath $disabledDir -Filter 'SH3AP*.asi' -File -ErrorAction SilentlyContinue).Count } else { 0 }
     $safeDisabledCount = if (Test-Path -LiteralPath $disabledDir -PathType Container) { @(Get-ChildItem -LiteralPath $disabledDir -Filter ('SH3AP*.asi' + $DisabledSuffix) -File -ErrorAction SilentlyContinue).Count } else { 0 }
 
-    $apExeKnown = ($exeHash -eq $AP_EXE_HASH -or $exeHash -eq $PREVIOUS_207_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_206_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_205_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_203_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_193_AP_EXE_HASH -or $exeHash -eq $CANONICAL_AP_EXE_HASH -or $exeHash -eq $BROKEN_186_AP_EXE_HASH)
+    $apExeKnown = ($exeHash -eq $AP_EXE_HASH -or $exeHash -eq $PREVIOUS_UFO_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_207_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_206_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_205_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_203_AP_EXE_HASH -or $exeHash -eq $PREVIOUS_193_AP_EXE_HASH -or $exeHash -eq $CANONICAL_AP_EXE_HASH -or $exeHash -eq $BROKEN_186_AP_EXE_HASH)
     $fullyAP = (-not $markerExists) -and $apExeKnown -and ($requiredActiveCount -eq $RuntimeNames.Count) -and ($activeRuntimeCount -eq $RuntimeNames.Count) -and $liveTarget -and $liveTarget.Equals($apSaveNorm,[StringComparison]::OrdinalIgnoreCase)
     $fullyVanilla = $markerExists -and ($exeHash -eq $VANILLA_EXE_HASH) -and ($activeRuntimeCount -eq 0) -and (($safeDisabledCount + $legacyDisabledCount) -gt 0) -and $liveTarget -and $liveTarget.Equals($vanSaveNorm,[StringComparison]::OrdinalIgnoreCase)
 
