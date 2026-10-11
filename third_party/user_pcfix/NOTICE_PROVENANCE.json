@@ -1,0 +1,60 @@
+{
+  "source_archive": "Silent_Hill_3_PC_Fix_2.8.5-Steam006 (2).zip",
+  "source_archive_sha256": "4fb4ac5faafe8ddd04032424567f7536868ac38e289d73c39813b665e0f05cb5",
+  "notices": [
+    {
+      "archive_path": "Silent_Hill_3_PC_Fix_2.8.5-Steam006/Licenses/D3D12TranslationLayer - LICENSE.txt",
+      "repository_path": "third_party/user_pcfix/Licenses/D3D12TranslationLayer - LICENSE.txt",
+      "sha256": "903df5512f7d02609fed0c780a9b704f5a3eeb6e4d84ebe42a29845c81899a3c"
+    },
+    {
+      "archive_path": "Silent_Hill_3_PC_Fix_2.8.5-Steam006/Licenses/D3D9On12 - LICENSE.txt",
+      "repository_path": "third_party/user_pcfix/Licenses/D3D9On12 - LICENSE.txt",
+      "sha256": "903df5512f7d02609fed0c780a9b704f5a3eeb6e4d84ebe42a29845c81899a3c"
+    },
+    {
+      "archive_path": "Silent_Hill_3_PC_Fix_2.8.5-Steam006/Licenses/minhook - LICENSE.txt",
+      "repository_path": "third_party/user_pcfix/Licenses/minhook - LICENSE.txt",
+      "sha256": "d5c2224982b0b95a16b098a561335fa93f3eaf4d0aa964b7843edb986df78dc8"
+    },
+    {
+      "archive_path": "Silent_Hill_3_PC_Fix_2.8.5-Steam006/Licenses/WidescreenFixesPack - LICENSE.txt",
+      "repository_path": "third_party/user_pcfix/Licenses/WidescreenFixesPack - LICENSE.txt",
+      "sha256": "89f319b9191272857f849ecb7a9f66d82d09e569b333d59ebdbef2b5f9048138"
+    },
+    {
+      "archive_path": "Silent_Hill_3_PC_Fix_2.8.5-Steam006/Licenses/WinToast - LICENSE.txt",
+      "repository_path": "third_party/user_pcfix/Licenses/WinToast - LICENSE.txt",
+      "sha256": "ef8c3ebd4fdfd53d05721759901604d30e01f0bab400e1340c4db06cc5a6f621"
+    }
+  ],
+  "binary_comparison": [
+    {
+      "file": "d3d8.dll",
+      "uploaded_sha256": "4d35f4ee85c63ffe012731dc1a4e8eee2d8d34ebf6384076044e79be1a479f13",
+      "bundled_sha256": "1b8a53d7879808bfd5c5c833b108bca9be3b510822987b3b0047edb7e6a9719d",
+      "identical": false
+    },
+    {
+      "file": "d3d9on12.dll",
+      "uploaded_sha256": "9c58f035da80c125e9878e88ce85fda6e93c35af1bd66890688240ef912e0383",
+      "bundled_sha256": "67d4f1ed724927001955fe420dcf06909078b6087d601e78a8dbfbf8bf028a33",
+      "identical": false
+    },
+    {
+      "file": "dxbcSigner.dll",
+      "uploaded_sha256": "5f291153682f021e88bffcdb350949153188bac22b7342041a489c86455aeb14",
+      "bundled_sha256": "5f291153682f021e88bffcdb350949153188bac22b7342041a489c86455aeb14",
+      "identical": true
+    },
+    {
+      "file": "Silent_Hill_3_PC_Fix.dll",
+      "uploaded_sha256": "4f5f8b449a6db423f79207ac401d1fe8d34dabb762425563439b31f4f4975fcc",
+      "bundled_sha256": "5c4028c674ea9820183144e6b47372216d5c1b3c147659e175ec2ffce0ca6fbb",
+      "identical": false
+    }
+  ],
+  "steam006_own_code_license_found": false,
+  "scope": "Notices preserved from the supplied 2.8.5 distribution. Three DLLs differ from the working bundle; exact-version license coverage remains unverified. These notices do not grant rights to Steam006 code or game assets.",
+  "excluded": "No DLLs, executable helpers, FAQ or SH3FixData sounds imported from the supplied archive."
+}

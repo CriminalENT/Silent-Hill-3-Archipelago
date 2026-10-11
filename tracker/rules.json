@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "logic_version": 4,
+  "logic_version": 5,
   "source": "travel_logic.py and travel_routes.json",
   "locations": {
     "Starting Item - House Key": {
@@ -738,11 +738,14 @@
     "Leonard": {
       "all": [
         "Plastic Bag (With Blood)",
-        "A boss weapon or Heather Beam + Transform Costume"
+        "A boss weapon or Heather Beam + Transform Costume",
+        "Flashlight",
+        "3F Store Room Fast Travel"
       ],
       "any": [],
       "entry_region": "ow_c4",
-      "verified": true
+      "verified": true,
+      "generation_safeguard": "Permanent Hospital return route"
     },
     "Memory of Alessa": {
       "all": [
@@ -769,11 +772,14 @@
     "Otherworld Hospital 1F C4 - Talisman": {
       "all": [
         "Plastic Bag (With Blood)",
-        "A boss weapon or Heather Beam + Transform Costume"
+        "A boss weapon or Heather Beam + Transform Costume",
+        "Flashlight",
+        "3F Store Room Fast Travel"
       ],
       "any": [],
       "entry_region": "ow_c4",
-      "verified": true
+      "verified": true,
+      "generation_safeguard": "Permanent Hospital return route"
     },
     "Subway B1 - Subway Map": {
       "all": [],
