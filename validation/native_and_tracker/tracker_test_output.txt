@@ -1,0 +1,3 @@
+PASS: all AP/PopTracker routes and edges agree; 73428 actual Lua comparisons over 29 roots.
+In-game tracker/AP disagreement: []
+PASS: generation return safeguard: received, visited and progressive unlocks; Flashlight required.

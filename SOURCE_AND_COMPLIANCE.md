@@ -1,19 +1,27 @@
-# Source availability — 1.0.6
+# Runtime promotion — 1.0.6
 
-All Python world/client/installer code and the PowerShell/batch tools are available.
-The accompanying GitHub source archive includes those sources, tests, native patch
-scripts, exact payload hashes and a reproducible APWorld packaging tool.
+This package promotes the nine reconstructed native builds into the normal client
+installation flow at the user's request. runtime/manifest.json and the normal
+mode tool contain matching hashes, so client startup installs these builds.
+RUNTIME_PROMOTION.json records old/new hashes and validation limits.
 
-The nine legacy ASI plugins are not source-complete: their original C/C++ projects
-are absent. The UI alignment patch and Reset Keybinds relocation repair can be
-reviewed as binary patch scripts, but these do not reconstruct the plugins' source.
-The five supplied third-party PC Fix files likewise do not have source in this repo.
+The user reported that the test copy seemed good and accepted promotion. This is
+limited smoke feedback, not a confirmed complete playthrough. The documented
+static/emulated comparisons and source-only reproducibility passed. Native sources,
+asset inventories, build scripts and comparison provenance remain under native/.
+Original C++ projects were not recovered. No native-code or UI-asset permission
+has been invented; the included atlas/WAV provenance remains unverified.
 
-The source-only archive excludes executable binaries and binary assets. To rebuild
-the distributed APWorld, the packaging script reads the exact hash-verified binary
-payloads from the supplied 1.0.2 APWorld. This repackages native binaries; it does not
-compile them from source. No claim of a complete open-source native build is made.
+The existing Steam006/third-party payloads and their unresolved permissions are
+unchanged. This is an installable personal-use package, not a declaration that
+public redistribution or moderator approval has been obtained. Nothing has been
+published to GitHub. Version stays 1.0.6.
 
-No project-wide source license was supplied, so no new license is assigned here.
-Existing third-party notices remain intact. Bundling files does not establish their
-redistribution license or Archipelago public-submission approval.
+Dependency-notice update: all five license texts from the supplied PC Fix 2.8.5
+archive are now in third_party/user_pcfix/Licenses, with exact hashes and binary
+comparison in NOTICE_PROVENANCE.json. This resolves omission of those texts,
+not exact-version coverage or permission for Steam006 code/game assets.
+
+Project-origin clarification: the owner confirms the native plugins were created
+for SH3AP. Missing original high-level source does not itself establish third-party
+ownership. Individual UI asset attribution and Steam006 dependencies remain separate.

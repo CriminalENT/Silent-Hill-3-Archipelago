@@ -1,5 +1,5 @@
 from collections import Counter
-from BaseClasses import Item, ItemClassification, Location, Region, Tutorial
+from BaseClasses import Item, ItemClassification, Location, Tutorial
 from worlds.AutoWorld import WebWorld, World
 from .data import (
     ACTIVE_LOCATION_NAME_TO_ID,
@@ -52,12 +52,12 @@ from .data import (
 )
 from .options import SilentHill3Options, EXTRA_NEW_GAME_ITEMS
 from Options import OptionGroup, CommonOptions
-from .ammo import rebalance_ammo
 from .supplies import balance_supplies
 from .traps import replace_filler_with_traps
 from .data import TRAP_ITEM_IDS, BUNDLED_ITEMS
-from .travel_logic import (can_access as travel_access, state_owned, FLASHLIGHT_CHECKS,
-                           starting_roots, VISIT_EVENT_ITEMS, save_events_settled, LOGIC_VERSION)
+from .travel_logic import VISIT_EVENT_ITEMS, target
+from .regions import build_regions, local_rule
+GENERATION_LOGIC_VERSION = 5
 
 
 def can_access_silencer_wall(state, player):
@@ -233,23 +233,25 @@ class SilentHill3World(World):
     def create_regions(self) -> None:
         if not hasattr(self, "starting_area_row"):
             self.generate_early()
-        region = Region(self.origin_region_name, self.player, self.multiworld)
+        regions = build_regions(self)
         for name, address in self.current_locations().items():
+            region = regions[target(name)[0]]
             region.locations.append(SilentHill3Location(self.player, name, address, region))
         # Actual save interaction permanently unlocks the destination, even if
         # its randomized network reward is unrelated. Addressless visit events
         # model that mechanic without adding checks or changing the item pool.
         for row, item_name in VISIT_EVENT_ITEMS.items():
+            region = regions[target(FAST_TRAVEL_MENU_LOCATIONS[row])[0]]
             event = SilentHill3Location(self.player, item_name, None, region)
             event.place_locked_item(SilentHill3Item(item_name, ItemClassification.progression, None, self.player))
             region.locations.append(event)
         # Addressless progression events express the goal in generation logic;
         # they do not add network checks or consume random item-pool slots.
         for boss, item_name in BOSS_EVENT_ITEMS.items():
+            region = regions[target(boss)[0]]
             event = SilentHill3Location(self.player, "Defeat " + boss, None, region)
             event.place_locked_item(SilentHill3Item(item_name, ItemClassification.progression, None, self.player))
             region.locations.append(event)
-        self.multiworld.regions.append(region)
 
     def _duplicate_filler(self, pool: list[str]) -> str:
         # Duplicate an existing consumable, weighted by its current abundance.
@@ -380,6 +382,16 @@ class SilentHill3World(World):
             )
 
         self.multiworld.itempool += [self.create_item(name) for name in pool]
+        # Finalize ammo identities before AP applies placement restrictions,
+        # filling, item links and progression balancing. Never rewrite rewards
+        # based on the completed seed's weapon acquisition order.
+        ammo_names = {ammo for _, ammo in AMMO_WEAPON_PAIRS}
+        self.ammo_distribution = {
+            "status": "fixed_before_fill",
+            "policy": "normal_pool_with_supply_weights_and_traps",
+            "pool_counts": dict(sorted(Counter(
+                name for name in pool if name in ammo_names).items())),
+        }
 
     def create_item(self, name: str) -> SilentHill3Item:
         class_name = ITEM_CLASSIFICATION[name]
@@ -397,41 +409,24 @@ class SilentHill3World(World):
     def get_filler_item_name(self) -> str:
         return ITEM_HEALTH_DRINK
 
-    @classmethod
-    def stage_pre_output(cls, multiworld):
-        # All fill, progression balancing and finalize hooks are finished.
-        # Only non-progression ammo identities change; no logical spheres move.
-        rebalance_ammo(multiworld, cls)
-        # Validate every retained spoiler step when testing item removals; the
-        # permanent Hospital transition makes goal-only pruning insufficient.
-        from .spoiler_safety import install_spoiler_safety
-        install_spoiler_safety(multiworld)
-
     def write_spoiler(self, spoiler_handle):
         info = getattr(self, "ammo_distribution", None)
         if info:
             spoiler_handle.write(f"\nSH3 ammo distribution ({self.multiworld.player_name[self.player]}):\n")
-            spoiler_handle.write("Weapon order: " + ", ".join(info["weapon_order"]) + "\n")
-            spoiler_handle.write("Policy: retained Normal checklist ratio 31:10:3, earliest gun first.\n")
-            for name, count in sorted(info["final_counts"].items()):
+            spoiler_handle.write("Policy: ammo fixed before fill; supply weights and traps applied.\n")
+            spoiler_handle.write("Counts below describe this world's pool before AP item links.\n")
+            for name, count in sorted(info["pool_counts"].items()):
                 spoiler_handle.write(f"  {name}: {count}\n")
             spoiler_handle.write("Status: " + info["status"] + "\n")
 
     def set_rules(self) -> None:
-        roots = starting_roots(self.starting_area_row)
         for name in self.current_locations():
-            self.multiworld.get_location(name, self.player).access_rule = (
-                lambda state, name=name: travel_access(name, state_owned(state, self.player), roots))
+            self.multiworld.get_location(name, self.player).access_rule = local_rule(name, self.player)
         for row, event_name in VISIT_EVENT_ITEMS.items():
-            self.multiworld.get_location(event_name, self.player).access_rule = (
-                lambda state, row=row: travel_access(FAST_TRAVEL_MENU_LOCATIONS[row], state_owned(state, self.player), roots))
+            self.multiworld.get_location(event_name, self.player).access_rule = local_rule(
+                FAST_TRAVEL_MENU_LOCATIONS[row], self.player)
         for boss in BOSS_EVENT_ITEMS:
-            # A same-sphere boss event must not erase a save that was reachable
-            # before its irreversible transition. Sweep visit-unlock bookkeeping
-            # first; no extra network checks or progression items are required.
-            self.multiworld.get_location("Defeat " + boss, self.player).access_rule = (
-                lambda state, name=boss: travel_access(name, state_owned(state, self.player), roots)
-                and (name != "Leonard" or save_events_settled(state, self.player, roots)))
+            self.multiworld.get_location("Defeat " + boss, self.player).access_rule = local_rule(boss, self.player)
         required = ((BOSS_EVENT_ITEMS["God"],) if self.options.goal.current_key == "kill_god"
                     else tuple(BOSS_EVENT_ITEMS.values()))
         self.multiworld.completion_condition[self.player] = lambda state: all(state.has(n, self.player) for n in required)
@@ -464,7 +459,8 @@ class SilentHill3World(World):
             "fast_travel_rows": list(ACTIVE_FAST_TRAVEL_ROWS),
             "fast_travel_item_count": len(SAVE_LOCATION_NAMES),
             "fast_travel_unlock_on_visit": True,
-            "fast_travel_logic_version": LOGIC_VERSION,
+            "fast_travel_logic_version": GENERATION_LOGIC_VERSION,
+            "leonard_requires_hospital_return": True,
             "random_start_forces_randomized_fast_travel": True,
             "starting_checks_independent_of_start_region": True,
             "hospital_post_leonard_lobby_only": True,
@@ -517,8 +513,8 @@ class SilentHill3World(World):
             "healing_weight": self.options.healing_weight.value,
             "supply_distribution": getattr(self, "supply_distribution", {}),
             "death_link": bool(self.options.death_link.value),
-            "ammo_distribution": getattr(self, "ammo_distribution", {"status": "pending_fill"}),
-            "ammo_distribution_policy": "normal_checklist_ratio_ranked_by_final_weapon_sphere",
+            "ammo_distribution": self.ammo_distribution,
+            "ammo_distribution_policy": "normal_pool_with_supply_weights_and_traps",
             "randomize_boss_checks_implemented": True,
             "randomize_boss_checks_scope": "all five bosses; live defeats persisted per AP seed/team/slot",
             "legacy_starting_item_options_ignored": False,

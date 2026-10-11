@@ -1,0 +1,23 @@
+{
+  "version": "1.0.6",
+  "cores": [
+    {
+      "version": "0.6.7",
+      "commit": "debe4cf035c7c15efe6fb95f72343af0d420c68c",
+      "matrix_cases": 240,
+      "mixed_checksfinder_cases": 60
+    },
+    {
+      "version": "0.6.9 main",
+      "commit": "9b64e832874a50d5d14d5bc599d356d2c5194d7a",
+      "matrix_cases": 240,
+      "mixed_checksfinder_cases": 60
+    }
+  ],
+  "regions": 41,
+  "official_build": "passed on main; CRC valid; APContainer fields generated as 7/7",
+  "live_gameplay_test": false,
+  "tracker_display_parity": "pending for new Leonard safety requirement",
+  "native_sources": "incomplete",
+  "redistribution_permission": "unresolved"
+}

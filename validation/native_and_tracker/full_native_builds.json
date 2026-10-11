@@ -1,0 +1,164 @@
+{
+  "rebind_framelock": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "original_sha256": "4957e576a594286018c242962092b5e85047615f112a66eabca1ea30b2de9f43",
+      "rebuilt_sha256": "b2bc9e263a48f78e669766bcdfb652922e883a75d750890fa471f0daebf095fb",
+      "rebuilt_bytes": 6144,
+      "compiler": "ziglang 0.17.0",
+      "target": "x86-windows-gnu",
+      "fresh_directory_source_only_build_identical": true,
+      "emulated_scenarios": 8,
+      "controller_gate_cases": 288,
+      "result": "matched original",
+      "win32_apis": "mocked",
+      "live_game_test": false,
+      "runtime_modified": false,
+      "original_source_recovered": false,
+      "complete_assembly_reconstruction": true
+    }
+  },
+  "reset_keybinds": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "original_sha256": "ca6fb3581ffa990ec0e43a366356ee897d1144440b61f7322c309c410c00979f",
+      "rebuilt_sha256": "d9e51d1eafaa627ca49f355920b81008db0dec01a8ac2d2b37157c1f217c9669",
+      "compiler": "ziglang 0.17.0",
+      "matched_instructions": 1178,
+      "original_data_ranges": "identical",
+      "source_only_fresh_directory_build_identical": true,
+      "live_test": false,
+      "dynamic_tests": false,
+      "runtime_modified": false
+    }
+  },
+  "bindings_new": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "0e7a853c814991c460039aab0548e5aae028ba06d3920c44e55d0b475c5bdebc",
+      "rebuilt_sha256": "ea6e7f5aee2df18d0587db3b24c5c267088ab3b78fe81fa0d9e235a46b85ab39",
+      "compiler": "ziglang 0.17.0",
+      "fresh_directory_source_only_build_identical": true,
+      "live_game_test": false,
+      "original_cpp_recovered": false,
+      "validation_summary": "1,114 instructions, original data and relocation entries compared; original instruction/data addresses retained."
+    }
+  },
+  "controller": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "868652a3635c2b3f68f30c9a86ed8c1a6bc15b038e50c2244115f3fbee819017",
+      "rebuilt_sha256": "21a003db1a8512d5e9ec1e5a3150db7fe450290035d0cb256a8c0c1a74702a35",
+      "compiler": "ziglang 0.17.0",
+      "fresh_directory_source_only_build_identical": true,
+      "live_game_test": false,
+      "original_cpp_recovered": false,
+      "validation_summary": "1,206 instructions and original data compared; original instruction/data addresses retained. One stale original relocation at RVA 0x195d (over NOP bytes 0x90909090) is intentionally absent from the candidate."
+    }
+  },
+  "activity": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "48d552aeb309caf8c814a8153108e916b362c2599c3e5835e3ff8fa321339a0b",
+      "rebuilt_sha256": "a05c58d5000d02b6c04936f3b19ca9266f531dc81038b1e0dc6fac847faa6bd8",
+      "compiler": "ziglang 0.17.0",
+      "fresh_directory_source_only_build_identical": true,
+      "live_game_test": false,
+      "original_cpp_recovered": false,
+      "validation_summary": "Complete text/data section comparison at two load bases, including the relocated store pointer; 16 emulated DLL entry scenarios."
+    }
+  },
+  "livebridge": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "3a8179f6323a0ade9f9db14e7b02153df4a45996fc8275350e4031af2edddb10",
+      "rebuilt_sha256": "5d552a2e0ed51c8b1fe73fcd2daf6d98c055b53d25c60106c22733687e797ed9",
+      "compiler": "ziglang 0.17.0",
+      "fresh_directory_source_only_build_identical": true,
+      "live_game_test": false,
+      "original_cpp_recovered": false,
+      "validation_summary": "671 original text instructions and data compared. The full New Game extension bytes match the reference. The world-flag table in original raw-section padding is now explicit source data."
+    }
+  },
+  "itemmessage": {
+    "source_kind": "reconstructed assembly (with recovered patch source where noted)",
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established by this package",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "a270e5aa561f06805fae19bf815f4540d50ee17c00d0a77cb021a4708e14083e",
+      "rebuilt_sha256": "f5f4c576d1913f6b6ef0dae1523290343380dc0879e7a1b4a7946543bc25d07c",
+      "compiler": "ziglang 0.17.0",
+      "fresh_directory_source_only_build_identical": true,
+      "live_game_test": false,
+      "original_cpp_recovered": false,
+      "validation_summary": "428 instructions and original data compared. Original and rebuilt candidates both passed mocked popup frame tests at two bases: Enter/A, hold/release, native-message and title guards, sound, timeout acknowledgement and explicit reset. The separate text-hook installer was marked installed in those emulations, not exercised."
+    }
+  },
+  "core": {
+    "source_kind": "reconstructed assembly, data declarations and explicit PE builder",
+    "complete_ASI_candidate_build": true,
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "5b6aee062be87afb6e84124708680c6da834b77939b4f85d371b9e224509b9d9",
+      "rebuilt_sha256": "540caa38dfe4a8a00a25d9c12d83243c87e67894bb89fca2f373a6cf7f170700",
+      "rebuilt_bytes": 152064,
+      "compiler": "GNU binutils 2.42; explicit PE32 metadata builder",
+      "primary_instructions": 26251,
+      "extension_instructions": 2351,
+      "overlapping_entry_decodes_checked": 0,
+      "complete_ASI_candidate_build": true,
+      "fresh_directory_source_and_assets_build_identical": true,
+      "reference_ASI_required_to_build": false,
+      "original_cpp_recovered": false,
+      "relocations": 1721,
+      "windows_loader_test": false,
+      "gameplay_test": false,
+      "runtime_modified": false
+    }
+  },
+  "ui": {
+    "source_kind": "reconstructed assembly, data declarations and explicit PE builder; separately extracted assets",
+    "complete_ASI_candidate_build": true,
+    "original_cpp_project": "not recovered",
+    "original_authorship": "not established",
+    "licence_assignment": "none added",
+    "validation": {
+      "reference_sha256": "330b3cbc67e831dbaaee8d4670b0a3c7c69f7d4eff5542ff52a85a6eb90978d6",
+      "rebuilt_sha256": "e4f1ea166acf2384b78bed31f44e174fe268500752427e653a9b18c583fe76aa",
+      "rebuilt_bytes": 3730432,
+      "compiler": "GNU binutils 2.42; explicit PE32 metadata builder",
+      "primary_instructions": 6742,
+      "extension_instructions": 9935,
+      "overlapping_entry_decodes_checked": 4,
+      "complete_ASI_candidate_build": true,
+      "fresh_directory_source_and_assets_build_identical": true,
+      "reference_ASI_required_to_build": false,
+      "original_cpp_recovered": false,
+      "relocations": 3050,
+      "windows_loader_test": false,
+      "gameplay_test": false,
+      "runtime_modified": false
+    }
+  }
+}

@@ -1,4 +1,7 @@
-"""Directional save-entry logic shared by generation and the native tracker.
+"""Live directional save-entry logic and shared route data.
+
+Generation uses the monotonic AP graph in regions.py. This module retains the
+actual post-Leonard closure for live tracker availability.
 
 The graph records verified directional travel. Missing reverse edges are intentional. Local pickup requirements are stored by stable check ID
 in travel_routes.json, independently of display names and entry route.
@@ -11,7 +14,7 @@ from .data import (FAST_TRAVEL_MENU_LOCATIONS, ACTIVE_FAST_TRAVEL_ROWS,
                    BOSS_WEAPON_COMBINATIONS, BOSS_EVENT_ITEMS, CHECK_CATALOGUE,
                    SILENCER_WEAPONS, LOCATION_NAME_TO_ID)
 
-LOGIC_VERSION = 4
+LOGIC_VERSION = 5
 # Enable only with a verified fix for the reported train-interior return load.
 PLATFORM_RETURN_VERIFIED = False
 DESTINATIONS = (
@@ -140,16 +143,26 @@ def reachable_from_save(row, owned=(), *, include_other_unlocks=False):
         items -= frozenset(FAST_TRAVEL_MENU_LOCATIONS)
     return reachable(items, starting_roots(row))
 
+LEONARD_RETURN_CHECKS = frozenset(('Leonard', 'Otherworld Hospital 1F C4 - Talisman'))
+
+def return_route_missing(name, owned):
+    """Match the generation safeguard; being at C4 alone is not a return unlock."""
+    if name not in LEONARD_RETURN_CHECKS:
+        return []
+    return [n for n in ('Flashlight', FAST_TRAVEL_MENU_LOCATIONS[19]) if n not in owned]
+
 def can_access(name, owned, roots=('mall',)):
     region, requirements = target(name)
     return (region in reachable(frozenset(owned), tuple(roots))
-            and all(satisfied(r, owned) for r in requirements))
+            and all(satisfied(r, owned) for r in requirements)
+            and not return_route_missing(name, owned))
 
 def missing(name, owned, roots=('mall',)):
     region, requirements = target(name)
     if region not in reachable(frozenset(owned), tuple(roots)):
         return None
-    return [r for r in requirements if not satisfied(r, owned)]
+    return list(dict.fromkeys([r for r in requirements if not satisfied(r, owned)]
+                              + return_route_missing(name, owned)))
 
 # Room IDs at each destination were evaluated using the supplied EXE geometry;
 # these are not guessed floor/area identifiers. See floor_follow_152/travel_cases.json.
@@ -203,15 +216,3 @@ def state_owned(state, player):
             owned.add(FAST_TRAVEL_MENU_LOCATIONS[row])
     return owned
 
-def save_events_settled(state, player, roots):
-    """Sweep available visit-unlock events before applying the permanent barrier.
-
-    Visiting a save already unlocks it in the game; these addressless events do
-    not grant its shuffled reward or complete a network check. This ordering
-    prevents AP's event iteration order from throwing away a reachable return
-    save when the Leonard event is swept in the same logical sphere.
-    """
-    owned = state_owned(state, player)
-    return all(state.has(VISIT_EVENT_ITEMS[row], player)
-               or not can_access(FAST_TRAVEL_MENU_LOCATIONS[row], owned, roots)
-               for row in ACTIVE_FAST_TRAVEL_ROWS)

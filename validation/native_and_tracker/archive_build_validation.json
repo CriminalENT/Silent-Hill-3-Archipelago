@@ -1,0 +1,17 @@
+{
+  "archive_build_from_scratch": true,
+  "reference_ASIs_present_or_used": false,
+  "all_nine_candidate_hashes_matched": [
+    "SH3AP_Rebind_FrameLock.asi",
+    "SH3AP_Reset_Keybinds.asi",
+    "SH3AP_Bindings_New.asi",
+    "SH3AP_Controller.asi",
+    "SH3AP_Activity.asi",
+    "SH3AP_LiveBridge.asi",
+    "SH3AP_ItemMessage.asi",
+    "SH3AP.asi",
+    "SH3AP_UI.asi"
+  ],
+  "gameplay_test": false,
+  "public_distribution_cleared": false
+}

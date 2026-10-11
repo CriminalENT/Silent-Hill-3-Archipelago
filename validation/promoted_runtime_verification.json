@@ -1,0 +1,6 @@
+{
+  "nine_native_builds": "passed",
+  "source_to_normal_apworld_hash_match": "passed",
+  "altered_hash_rejected": "passed",
+  "gameplay": "not tested in this environment"
+}

@@ -1,0 +1,9 @@
+Patch for the existing SH3AP 1.0.6 PopTracker pack, matching revised review-source generation logic.
+Replace scripts/route_logic.lua and scripts/route_data.lua in the extracted pack.
+README.txt documents current rules. This is a patch, not a standalone pack;
+it contains no maps/icons/assets. Version stays 1.0.6.
+Both Leonard and Talisman now require Flashlight and Hospital 3F Store Room Fast
+Travel, alongside existing local/route requirements. The unlock may come from a
+received item or visiting the save; progressive grants use the same save-code
+state. This is a generation safeguard, not a physical game restriction.
+Pair this with the revised source-review client/world, not old generated seeds.

@@ -1,0 +1,29 @@
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/rebind_framelock/build/SH3AP_Rebind_FrameLock.asi", "bytes": 6144, "sha256": "b2bc9e263a48f78e669766bcdfb652922e883a75d750890fa471f0daebf095fb"}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/reset_keybinds/build/SH3AP_Reset_Keybinds.asi", "bytes": 7168, "sha256": "d9e51d1eafaa627ca49f355920b81008db0dec01a8ac2d2b37157c1f217c9669"}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/bindings_new/build/SH3AP_Bindings_New.asi", "bytes": 7168, "sha256": "ea6e7f5aee2df18d0587db3b24c5c267088ab3b78fe81fa0d9e235a46b85ab39"}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/controller/build/SH3AP_Controller.asi", "bytes": 8704, "sha256": "21a003db1a8512d5e9ec1e5a3150db7fe450290035d0cb256a8c0c1a74702a35"}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/activity/build/SH3AP_Activity.asi", "bytes": 14848, "sha256": "a05c58d5000d02b6c04936f3b19ca9266f531dc81038b1e0dc6fac847faa6bd8"}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/livebridge/build/SH3AP_LiveBridge.asi", "bytes": 11264, "sha256": "5d552a2e0ed51c8b1fe73fcd2daf6d98c055b53d25c60106c22733687e797ed9"}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/itemmessage/build/SH3AP_ItemMessage.asi", "bytes": 12800, "sha256": "f5f4c576d1913f6b6ef0dae1523290343380dc0879e7a1b4a7946543bc25d07c"}
+{"section": "primary", "sha256": "d76b92a4b9a7981dfa343c9d7c995dc7f8e5d46832ebab0eb265a351b7cad8e4", "bytes": 101489}
+{"section": "extensions", "sha256": "f621c94bd3e0f3086e0b93fa22b69f981e5077e7242ba8a1a3ef5a229fac37b6", "bytes": 45076}
+{"file": "/workspace/scratch/9b41c23783a3/patched/sh3/native/core/build/SH3AP.asi", "sha256": "540caa38dfe4a8a00a25d9c12d83243c87e67894bb89fca2f373a6cf7f170700", "bytes": 152064, "live_tested": false}
+{"section": "primary", "sha256": "e1371f9f2154c052fff17895e0c167e1b3e4bbd8b94857611202970b4f5d69a0", "bytes": 28672}
+{"section": "extensions", "sha256": "a7d0640480ddc86521cd3509d29b48ab1765d5990271795b8ca4d105cee57072", "bytes": 3719188}
+{"verified_assets": 13, "atlas_pixels": 524288, "redistribution_permission_verified": false}
+{"file": "/workspace/scratch/9b41c23783a3/patched/sh3/native/ui/build/SH3AP_UI.asi", "sha256": "e4f1ea166acf2384b78bed31f44e174fe268500752427e653a9b18c583fe76aa", "bytes": 3730432, "live_tested": false}
+{"scenarios": 8, "controller_gate_cases": 288, "status": "matched original", "win32": "mocked", "live_test": false}
+{"output": "/workspace/scratch/9b41c23783a3/patched/sh3/native/reset_keybinds/build/SH3AP_Reset_Keybinds.asi", "bytes": 7168, "sha256": "d9e51d1eafaa627ca49f355920b81008db0dec01a8ac2d2b37157c1f217c9669"}
+{"matched_instructions": 1178, "original_data_ranges": "identical", "live_test": false}
+{"plugin": "Bindings_New", "instructions": 1114, "original_data_ranges": "identical", "fixed_layout": true, "removed_stale_relocations": [], "live_test": false}
+{"plugin": "Controller", "instructions": 1206, "original_data_ranges": "identical", "fixed_layout": true, "removed_stale_relocations": ["0x195d"], "live_test": false}
+{"entry_scenarios": 16, "sections": "matched including rebased store pointer", "live_test": false}
+{"plugin": "LiveBridge", "instructions": 671, "original_data_ranges": "identical", "fixed_layout": true, "removed_stale_relocations": [], "live_test": false}
+{"plugin": "ItemMessage", "instructions": 428, "original_data_ranges": "identical", "fixed_layout": true, "removed_stale_relocations": [], "live_test": false}
+PASS: real v23 frame/input path at two module bases; Enter/A FIFO acknowledgement; hold/release; no timer advance; vanilla-message/title guards; heartbeat cancellation.
+PASS: real v23 frame/input path at two module bases; Enter/A FIFO acknowledgement; hold/release; no timer advance; vanilla-message/title guards; heartbeat cancellation.
+{"matched_instructions": {"primary": 26251, "extensions": 2351}, "overlapping_entry_decodes": 0, "test_scope": "instruction_sections", "live_test": false}
+{"non_instruction_bytes_matched": 99642, "assembly_encoding_byte_differences": 3310, "relocations_matched": 1721, "imports_matched": 16, "complete_PE_candidate": true, "copied_templates_byte_exact": true, "windows_loader_test": false, "gameplay_test": false}
+{"matched_instructions": {"primary": 6742, "extensions": 9935}, "overlapping_entry_decodes": 4, "test_scope": "instruction_sections", "live_test": false}
+{"non_instruction_bytes_matched": 3742110, "assembly_encoding_byte_differences": 463, "relocations_matched": 3050, "imports_matched": 0, "complete_PE_candidate": true, "resources_hash_verified": true, "windows_loader_test": false, "gameplay_test": false}
+All available source-build comparisons passed. No Windows/gameplay test performed.
